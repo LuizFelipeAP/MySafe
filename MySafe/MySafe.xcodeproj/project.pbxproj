@@ -12,9 +12,12 @@
 		2C46022E2072F71900372E8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C46022C2072F71900372E8E /* Main.storyboard */; };
 		2C4602302072F71A00372E8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C46022F2072F71A00372E8E /* Assets.xcassets */; };
 		2C4602332072F71A00372E8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4602312072F71A00372E8E /* LaunchScreen.storyboard */; };
+		360FF60EFBC270C903EC23DD /* Pods_MySafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A4E259FA77AB02B6A021C1C /* Pods-MySafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySafe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySafe/Pods-MySafe.debug.xcconfig"; sourceTree = "<group>"; };
+		1E1CF83DF977FBE45B6EE683 /* Pods-MySafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySafe.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySafe/Pods-MySafe.release.xcconfig"; sourceTree = "<group>"; };
 		2C4602252072F71800372E8E /* MySafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4602282072F71900372E8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C46022A2072F71900372E8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		2C46022F2072F71A00372E8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C4602322072F71A00372E8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C4602342072F71A00372E8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				360FF60EFBC270C903EC23DD /* Pods_MySafe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				2C4602272072F71800372E8E /* MySafe */,
 				2C4602262072F71800372E8E /* Products */,
+				F03F3626E665806BB9B3E220 /* Pods */,
+				F6E4C6A60124BE0A82BE5753 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = MySafe;
 			sourceTree = "<group>";
 		};
+		F03F3626E665806BB9B3E220 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1A4E259FA77AB02B6A021C1C /* Pods-MySafe.debug.xcconfig */,
+				1E1CF83DF977FBE45B6EE683 /* Pods-MySafe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F6E4C6A60124BE0A82BE5753 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C4602372072F71A00372E8E /* Build configuration list for PBXNativeTarget "MySafe" */;
 			buildPhases = (
+				9AD7001B8E562A4800FE0EE7 /* [CP] Check Pods Manifest.lock */,
 				2C4602212072F71800372E8E /* Sources */,
 				2C4602222072F71800372E8E /* Frameworks */,
 				2C4602232072F71800372E8E /* Resources */,
+				6DAC71DE2D24EDD2CA419C3C /* [CP] Embed Pods Frameworks */,
+				AC63BE1C95B8ED4CE510D86E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6DAC71DE2D24EDD2CA419C3C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MySafe/Pods-MySafe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AD7001B8E562A4800FE0EE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MySafe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC63BE1C95B8ED4CE510D86E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MySafe/Pods-MySafe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C4602212072F71800372E8E /* Sources */ = {
@@ -278,15 +356,13 @@
 		};
 		2C4602382072F71A00372E8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A4E259FA77AB02B6A021C1C /* Pods-MySafe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YM3AUW8A2;
 				INFOPLIST_FILE = MySafe/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lfap.MySafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -296,15 +372,13 @@
 		};
 		2C4602392072F71A00372E8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E1CF83DF977FBE45B6EE683 /* Pods-MySafe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YM3AUW8A2;
 				INFOPLIST_FILE = MySafe/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lfap.MySafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
