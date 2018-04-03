@@ -2,6 +2,7 @@ platform :ios, '11.3'
 
 target 'MySafe' do
   use_frameworks!
+  pod 'Alamofire', '~> 4.5'
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'
 end
