@@ -22,6 +22,7 @@
 		2CA38D4C2072FD2300251FA1 /* NewAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA38D4B2072FD2300251FA1 /* NewAccount.storyboard */; };
 		2CA38D4E207307F400251FA1 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38D4D207307F400251FA1 /* LoginManager.swift */; };
 		2CA38D502073084300251FA1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38D4F2073084300251FA1 /* User.swift */; };
+		2CA38D532073150400251FA1 /* RegexUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38D522073150400251FA1 /* RegexUtil.swift */; };
 		360FF60EFBC270C903EC23DD /* Pods_MySafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		2CA38D4B2072FD2300251FA1 /* NewAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewAccount.storyboard; sourceTree = "<group>"; };
 		2CA38D4D207307F400251FA1 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		2CA38D4F2073084300251FA1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2CA38D522073150400251FA1 /* RegexUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexUtil.swift; sourceTree = "<group>"; };
 		8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 				2CA38D222072F97F00251FA1 /* Models */,
 				2CA38D232072F9A800251FA1 /* Views */,
 				2CA38D242072F9BE00251FA1 /* Managers */,
+				2CA38D51207314F600251FA1 /* Util */,
 			);
 			path = MySafe;
 			sourceTree = "<group>";
@@ -171,6 +174,14 @@
 				2CA38D4B2072FD2300251FA1 /* NewAccount.storyboard */,
 			);
 			path = NewAccount;
+			sourceTree = "<group>";
+		};
+		2CA38D51207314F600251FA1 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2CA38D522073150400251FA1 /* RegexUtil.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		F03F3626E665806BB9B3E220 /* Pods */ = {
@@ -327,6 +338,7 @@
 				2CA38D2F2072FACD00251FA1 /* SignupViewController.swift in Sources */,
 				2CA38D462072FCE400251FA1 /* AccountDetailViewController.swift in Sources */,
 				2CA38D4E207307F400251FA1 /* LoginManager.swift in Sources */,
+				2CA38D532073150400251FA1 /* RegexUtil.swift in Sources */,
 				2CA38D2B2072FA2A00251FA1 /* LoginViewController.swift in Sources */,
 				2CA38D502073084300251FA1 /* User.swift in Sources */,
 				2CA38D422072FC8800251FA1 /* AccountsViewController.swift in Sources */,
