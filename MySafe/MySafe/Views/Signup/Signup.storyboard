@@ -65,6 +65,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NZP-IJ-ASe"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="qjo-qe-sgf" id="IRT-5d-246"/>
+                        <outlet property="navigationBar" destination="hex-dm-0U2" id="y5f-Yg-D0T"/>
+                        <outlet property="passcodeTextField" destination="b7F-rC-P92" id="5if-ii-PaM"/>
+                        <outlet property="usernameTextField" destination="itl-7f-jCs" id="d7N-wT-u6v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cV-BQ-Ddn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

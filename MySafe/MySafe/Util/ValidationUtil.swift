@@ -31,7 +31,7 @@ class ValidationUtil {
     
     func isValid(passcode: String) -> Bool {
         
-        if passcode.count < 8 {
+        if passcode.count < 10 {
             return false
         }
         

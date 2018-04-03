@@ -1,8 +1,8 @@
 //
-//  LoginManager.swift
+//  SignupManager.swift
 //  MySafe
 //
-//  Created by Luiz Felipe Albernaz Pio on 02/04/18.
+//  Created by Luiz Felipe Albernaz Pio on 03/04/18.
 //  Copyright © 2018 Luiz Felipe Albernaz Pio. All rights reserved.
 //
 
@@ -10,24 +10,25 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class LoginManager {
+class SignupManager {
     
-    //MARK: Properties
+    //MARK: - Properties
     var user: User!
     
+    var name = BehaviorRelay<String>(value: "")
     var username = BehaviorRelay<String>(value: "")
     var passcode = BehaviorRelay<String>(value: "")
     
     let disposeBag = DisposeBag()
     
     //MARK: - Methods
-    func authenticateUser(completion: @escaping (Bool, String) -> ()) {
+    func registerUser(completion: @escaping (Bool, String) -> ()) {
         
         self.buildUser()
         
-        if self.isValidLogin() {
-            
-            APIService.shared.authenticate(user: self.user) { (apiResponse) -> (Void) in
+        if self.isValidFields() {
+         
+            APIService.shared.postNew(user: self.user) { (apiResponse) -> (Void) in
                 
                 //Save the token to UserSession
                 
@@ -37,7 +38,11 @@ class LoginManager {
                 if isSuccess {
                     message = "Success"
                 } else {
-                    message = "Server Error"
+                    if let responseMessage = apiResponse?.message {
+                        message = responseMessage
+                    } else {
+                        message = "Server error"
+                    }
                 }
                 
                 completion(isSuccess, message)
@@ -47,13 +52,15 @@ class LoginManager {
         }
     }
     
-    func isValidLogin() -> Bool {
+    func isValidFields() -> Bool {
+        
+        let validName = ValidationUtil.shared.isValid(name: self.user.name)
         
         let validEmail = ValidationUtil.shared.isValid(email: self.user.username)
         
         let validPass = ValidationUtil.shared.isValid(passcode: self.user.passcode)
         
-        return validEmail && validPass
+        return validEmail && validPass && validName
     }
     
     func buildUser() {
@@ -66,4 +73,6 @@ class LoginManager {
         self.user = user
     }
 }
+
+
 

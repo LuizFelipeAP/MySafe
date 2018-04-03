@@ -98,7 +98,6 @@ extension LoginViewController {
             .orEmpty
             .bind(to: self.loginManager.passcode)
             .disposed(by: self.disposeBag)
-        
     }
 }
 

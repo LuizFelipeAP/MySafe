@@ -27,7 +27,7 @@ class APIService {
     func authenticate(user: User,
                       completion: @escaping (APIResponse?) -> (Void)) {
     
-        //Garantee that the URL is a valid one
+        //Guarantees that the URL is a valid one
         guard let url = URL(string: EndPoints.login.rawValue) else {
             completion(nil)
             return
@@ -47,29 +47,65 @@ class APIService {
             .validate(statusCode: 200..<300)
             .responseData { (dataResponse) in
                 
-                //Validate if the response in not nil
-                guard let data = dataResponse.data else {
-                    completion(nil)
-                    return
-                }
+                let apiResponse = self.parse(dataResponse: dataResponse)
                 
-                //Decode the response into an APIResponse
-                let apiResposne = try? JSONDecoder().decode(APIResponse.self, from: data)
-                
-                //call the completion with the response decoded
-                completion(apiResposne)
+                completion(apiResponse)
         }
     }
     
     func postNew(user: User,
-                 completion: @escaping (APIResponse) -> (Void)) {
+                 completion: @escaping (APIResponse?) -> (Void)) {
         
+        //Guarantees that the URL is a valid one
+        guard let url = URL(string: EndPoints.register.rawValue) else {
+            completion(nil)
+            return
+        }
+        
+        //Set up the params for the POST request
+        let params: [String: Any] = ["email": user.username,
+                                     "name": user.name,
+                                     "password": user.passcode]
+        
+        //Make the request
+        Alamofire.request(url,
+                          method: .post,
+                          parameters: params,
+                          encoding: JSONEncoding.default,
+                          headers: self.header)
+            .validate(statusCode: 200..<300)
+            .responseData { (dataResponse) in
+                
+                let apiResponse = self.parse(dataResponse: dataResponse)
+                
+                completion(apiResponse)
+        }
     }
 }
 
+//**************************************************************************************
+//
+// MARK: - Helpers Extension
+//
+//**************************************************************************************
 extension APIService {
     
+    //Set up the common header
     var header: [String: String] {
         return ["Content-Type": "application/json"]
     }
+    
+    func parse(dataResponse: DataResponse<Data>) -> APIResponse? {
+        
+        //Validate if the response is not nil
+        guard let data = dataResponse.data else {
+            return nil
+        }
+        
+        //Decode the response into an APIResponse
+        let apiResposne = try? JSONDecoder().decode(APIResponse.self, from: data)
+
+        return apiResposne
+    }
+    
 }

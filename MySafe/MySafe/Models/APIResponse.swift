@@ -10,7 +10,9 @@ import UIKit
 
 class APIResponse: Codable {
     let type: String
-    let token: String
+    let token: String?
+    let message: String?
+    let errors: [String]?
     
     var success: Bool {
         get {
@@ -18,8 +20,13 @@ class APIResponse: Codable {
         }
     }
     
-    init(type: String, token: String) {
+    init(type: String,
+         token: String? = nil,
+         message: String? = nil,
+         errors: [String]? = nil) {
         self.type = type
         self.token = token
+        self.message = message
+        self.errors = errors
     }
 }
