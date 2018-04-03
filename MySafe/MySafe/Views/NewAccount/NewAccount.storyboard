@@ -18,17 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6t-f4-70h">
-                                <rect key="frame" x="166" y="323" width="103" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcH-QZ-PBx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="New Account" id="hGB-dC-SyD">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xWE-gi-Trw">
+                                            <connections>
+                                                <action selector="didPressCancelWithBarButtonItem:" destination="zLv-ZM-IVk" id="Sju-nz-DHl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="5zT-Vv-MwN">
+                                            <connections>
+                                                <action selector="didPressSaveWithBarButtonItem:" destination="zLv-ZM-IVk" id="k9h-cV-5du"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="TcH-QZ-PBx" secondAttribute="trailing" id="aeP-bj-f51"/>
+                            <constraint firstItem="TcH-QZ-PBx" firstAttribute="top" secondItem="xkY-9X-bik" secondAttribute="top" id="gTc-Io-8pF"/>
+                            <constraint firstItem="TcH-QZ-PBx" firstAttribute="leading" secondItem="xkY-9X-bik" secondAttribute="leading" id="gdt-uE-6Xo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xkY-9X-bik"/>
                     </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="TcH-QZ-PBx" id="aKA-I3-hYS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9B-2H-Me1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

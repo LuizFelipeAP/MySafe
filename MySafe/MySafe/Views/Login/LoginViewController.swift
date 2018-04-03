@@ -32,7 +32,7 @@ extension LoginViewController {
     @IBAction func didPressLogin(button: UIButton) {
         
         let aStoryboard = UIStoryboard(name: "Accounts", bundle: nil)
-        guard let accountsVC = aStoryboard.instantiateInitialViewController() as? AccountsViewController else { return }
+        guard let accountsVC = aStoryboard.instantiateInitialViewController() as? UINavigationController else { return }
         
         self.present(accountsVC, animated: true, completion: nil)
     }
