@@ -46,12 +46,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="jKj-FT-FYW"/>
                     </view>
+                    <connections>
+                        <outlet property="passcodeTextField" destination="hVv-hQ-Atu" id="i09-pI-oO2"/>
+                        <outlet property="usernameTextField" destination="2yL-mn-ZKz" id="cqO-Hr-8i9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wnP-h7-8Vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -23,13 +23,6 @@ class NewAccountViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    //MARK: - Methods
-    func dismiss() {
-        self.dismiss(animated: true, completion: nil)
-    }
-  
-    
     
 }
 
@@ -46,5 +39,17 @@ extension NewAccountViewController {
     
     @IBAction func didPressSave(barButtonItem: UIBarButtonItem) {
         self.dismiss()
+    }
+}
+
+//**************************************************************************************
+//
+// MARK: - Methods Extension
+//
+//**************************************************************************************
+extension NewAccountViewController {
+    
+    func dismiss() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

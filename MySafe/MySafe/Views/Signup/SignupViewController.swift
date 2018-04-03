@@ -24,10 +24,6 @@ class SignupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - Methods
-    func dismiss() {
-        self.dismiss(animated: true, completion: nil)
-    }
 }
 
 //**************************************************************************************
@@ -44,5 +40,16 @@ extension SignupViewController {
     @IBAction func didPressDone(barButtonItem: UIBarButtonItem) {
         self.dismiss()
     }
+}
+
+//**************************************************************************************
+//
+// MARK: - Methods Extension
+//
+//**************************************************************************************
+extension SignupViewController {
     
+    func dismiss() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

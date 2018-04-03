@@ -6,8 +6,23 @@
 //  Copyright © 2018 Luiz Felipe Albernaz Pio. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import RxSwift
+import RxCocoa
 
-class LoginManager: NSObject {
-
+class LoginManager {
+    
+    //MARK: Properties
+    var user: User!
+    
+    var username = BehaviorRelay(value: "")
+    var passcode = BehaviorRelay(value: "")
+    
+    let disposeBag = DisposeBag()
+    
+    //MARK: - Methods
+    func authenticateUser() -> Bool {
+        return username.value == "John" && passcode.value == "Pass@#3456"
+    }
+    
 }
