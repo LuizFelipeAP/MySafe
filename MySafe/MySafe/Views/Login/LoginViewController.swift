@@ -20,16 +20,39 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+//**************************************************************************************
+//
+// MARK: - Actions Extension
+//
+//**************************************************************************************
+extension LoginViewController {
+    
+    @IBAction func didPressLogin(button: UIButton) {
+        
+        let aStoryboard = UIStoryboard(name: "Accounts", bundle: nil)
+        guard let accountsVC = aStoryboard.instantiateInitialViewController() as? AccountsViewController else { return }
+        
+        self.present(accountsVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func didPressSignup(button: UIButton) {
+        
+        let sStoryboard = UIStoryboard(name: "Signup", bundle: nil)
+        guard let signupVC = sStoryboard.instantiateInitialViewController() as? SignupViewController else { return }
+        
+        self.present(signupVC, animated: true, completion: nil)
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
