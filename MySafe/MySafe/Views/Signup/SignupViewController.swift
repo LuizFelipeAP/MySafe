@@ -38,7 +38,12 @@ extension SignupViewController {
     }
     
     @IBAction func didPressDone(barButtonItem: UIBarButtonItem) {
-        self.dismiss()
+        
+        let aStoryboard = UIStoryboard(name: "Accounts", bundle: nil)
+        guard let accountVC = aStoryboard.instantiateInitialViewController() as? UINavigationController else { return }
+        
+        self.present(accountVC, animated: true, completion: nil)
+        
     }
 }
 

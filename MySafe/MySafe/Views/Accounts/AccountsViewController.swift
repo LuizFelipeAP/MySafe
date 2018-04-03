@@ -46,7 +46,17 @@ class AccountsViewController: UIViewController {
 extension AccountsViewController {
     
     @IBAction func didPressExit(barButtonItem: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        
+        //Check if came from Signup
+        guard let homeVC =
+            self.presentingViewController?.presentingViewController else {
+                //If not dismiss directly to Login
+                self.dismiss(animated: true, completion: nil)
+                return
+        }
+        
+        //If yes dismiss to login passing from Signup
+        homeVC.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didPressAdd(barButtonItem: UIBarButtonItem) {
