@@ -43,12 +43,21 @@ extension LoginViewController {
     
     @IBAction func didPressLogin(button: UIButton) {
         
-        if self.loginManager.authenticateUser() {
+        self.loginManager.authenticateUser { isAuthenticated, message in
             
-            let aStoryboard = UIStoryboard(name: "Accounts", bundle: nil)
-            guard let accountsVC = aStoryboard.instantiateInitialViewController() as? UINavigationController else { return }
+            if isAuthenticated {
             
-            self.present(accountsVC, animated: true, completion: nil)
+                let aStoryboard = UIStoryboard(name: "Accounts", bundle: nil)
+                guard let accountsVC = aStoryboard.instantiateInitialViewController() as? UINavigationController else { return }
+                
+                self.present(accountsVC, animated: true, completion: nil)
+            } else {
+                
+                AlertUtil.showInfo(title: "Opps",
+                                   message: message,
+                                   from: self)
+                
+            }
         }
     }
     

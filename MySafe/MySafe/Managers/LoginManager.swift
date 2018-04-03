@@ -21,12 +21,29 @@ class LoginManager {
     let disposeBag = DisposeBag()
     
     //MARK: - Methods
-    func authenticateUser() -> Bool {
+    func authenticateUser(completion: @escaping (Bool, String) -> ()) {
+        
         if self.isValidLogin() {
-            return username.value == "mock@mail.com"
+        
+            self.buildUser()
+            
+            APIService.shared.authenticate(user: self.user) { (apiResponse) -> (Void) in
+                
+                //Save the token to UserSession
+                
+                let isSuccess = apiResponse?.success == true
+                let message: String
+                
+                if isSuccess {
+                    message = "Success"
+                } else {
+                    message = "Server Error"
+                }
+                
+                completion(isSuccess, message)
+            }
         } else {
-            print("Not valid")
-            return false
+            completion(false, "Invalid Credentials")
         }
     }
     
@@ -37,6 +54,16 @@ class LoginManager {
         let validPass = ValidationUtil.shared.isValid(passcode: self.passcode.value)
         
         return validEmail && validPass
+    }
+    
+    func buildUser() {
+        
+        let username = self.username.value
+        let passcode = self.passcode.value
+        
+        let user = User(username: username, passcode: passcode)
+        
+        self.user = user
     }
 }
 
