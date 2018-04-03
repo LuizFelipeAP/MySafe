@@ -22,64 +22,21 @@ class LoginManager {
     
     //MARK: - Methods
     func authenticateUser() -> Bool {
-        if isValid(passcode: self.passcode.value) {
-            return username.value == "John"
+        if self.isValidLogin() {
+            return username.value == "mock@mail.com"
         } else {
             print("Not valid")
             return false
         }
     }
-}
-
-//**************************************************************************************
-//
-// MARK: - Validations Extension
-//
-//**************************************************************************************
-extension LoginManager {
     
-    func isValid(userName: String) -> Bool {
-        let trimmedUserName = userName.trimmingCharacters(in: .whitespacesAndNewlines)
-        let isMinimumLenght = trimmedUserName.count > 3
+    func isValidLogin() -> Bool {
         
-        return isMinimumLenght
-    }
-    
-    func isValid(email: String) -> Bool {
-        let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return RegexUtil.shared.evaluate(email, matchesWith: regex)
-    }
-    
-    func isValid(passcode: String) -> Bool {
+        let validEmail = ValidationUtil.shared.isValid(email: self.username.value)
         
-        if passcode.count < 8 {
-            return false
-        }
+        let validPass = ValidationUtil.shared.isValid(passcode: self.passcode.value)
         
-        //Contains a lowercase
-        let lowerRegex = ".*[a-z].*"
-        if !RegexUtil.shared.evaluate(passcode, matchesWith: lowerRegex) {
-            return false
-        }
-
-        //Contains an uppercase
-        let upperRegex = ".*[A-Z].*"
-        if !RegexUtil.shared.evaluate(passcode, matchesWith: upperRegex) {
-            return false
-        }
-        
-        //Contains number
-        let numberRegex = ".*[0-9].*"
-        if !RegexUtil.shared.evaluate(passcode, matchesWith: numberRegex) {
-            return false
-        }
-        
-        //Contains special char
-        let specialRegex = ".*[!&^%$#@()/_*+-]+.*"
-        if !RegexUtil.shared.evaluate(passcode, matchesWith: specialRegex) {
-            return false
-        }
-        
-        return true
+        return validEmail && validPass
     }
 }
+

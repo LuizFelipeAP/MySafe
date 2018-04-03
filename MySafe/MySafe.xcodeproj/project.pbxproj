@@ -23,6 +23,7 @@
 		2CA38D4E207307F400251FA1 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38D4D207307F400251FA1 /* LoginManager.swift */; };
 		2CA38D502073084300251FA1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38D4F2073084300251FA1 /* User.swift */; };
 		2CA38D532073150400251FA1 /* RegexUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38D522073150400251FA1 /* RegexUtil.swift */; };
+		2CA38D5520731B3200251FA1 /* ValidationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38D5420731B3200251FA1 /* ValidationUtil.swift */; };
 		360FF60EFBC270C903EC23DD /* Pods_MySafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		2CA38D4D207307F400251FA1 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		2CA38D4F2073084300251FA1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2CA38D522073150400251FA1 /* RegexUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexUtil.swift; sourceTree = "<group>"; };
+		2CA38D5420731B3200251FA1 /* ValidationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationUtil.swift; sourceTree = "<group>"; };
 		8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA38D522073150400251FA1 /* RegexUtil.swift */,
+				2CA38D5420731B3200251FA1 /* ValidationUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			files = (
 				2CA38D2F2072FACD00251FA1 /* SignupViewController.swift in Sources */,
 				2CA38D462072FCE400251FA1 /* AccountDetailViewController.swift in Sources */,
+				2CA38D5520731B3200251FA1 /* ValidationUtil.swift in Sources */,
 				2CA38D4E207307F400251FA1 /* LoginManager.swift in Sources */,
 				2CA38D532073150400251FA1 /* RegexUtil.swift in Sources */,
 				2CA38D2B2072FA2A00251FA1 /* LoginViewController.swift in Sources */,
