@@ -37,6 +37,12 @@ class SignupManager {
                 
                 if isSuccess {
                     message = "Success"
+                    
+                    if let token = apiResponse?.token {
+                        UserSession.shared.user = self.user
+                        UserSession.shared.token = token
+                    }
+                    
                 } else {
                     if let responseMessage = apiResponse?.message {
                         message = responseMessage

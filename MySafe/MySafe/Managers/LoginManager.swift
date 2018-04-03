@@ -36,6 +36,12 @@ class LoginManager {
                 
                 if isSuccess {
                     message = "Success"
+                    
+                    if let token = apiResponse?.token {
+                        UserSession.shared.user = self.user
+                        UserSession.shared.token = token
+                    }
+                    
                 } else {
                     message = "Server Error"
                 }
@@ -66,4 +72,3 @@ class LoginManager {
         self.user = user
     }
 }
-
