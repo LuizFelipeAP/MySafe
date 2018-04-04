@@ -3,17 +3,20 @@ PODS:
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
+  - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
+  - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 853f27a093ee520809e96cd3e6ff52cc21ee07f2
+PODFILE CHECKSUM: 317b26095bff1d51ea79d3da766991fc534b0948
 
 COCOAPODS: 1.4.0
