@@ -32,15 +32,23 @@ class NewAccountManager {
      */
     func saveAccount() -> (Bool, String) {
         
+        let status: (Bool, String)
+        
         self.buildAccount()
         
         if self.isValidAccount() {
             
-            return (true, "New account successfully saved")
+            if KeychainPersistence.shared.add(account: self.account) {
+                status = (true, "New account successfully saved")
+            } else {
+                status = (false, "Sorry couldn't save the account")
+            }
             
         } else {
-            return (false, "PLEASE PUT AT LEAST 3 CHARACTERS IN EACH FIELD")
+            status = (false, "PLEASE PUT AT LEAST 3 CHARACTERS IN EACH FIELD")
         }
+        
+        return status
     }
     
     func isValidAccount() -> Bool {

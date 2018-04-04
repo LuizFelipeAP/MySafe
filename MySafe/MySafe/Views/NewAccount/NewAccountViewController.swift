@@ -64,8 +64,9 @@ extension NewAccountViewController {
             title = "Failure"
         }
         
-        AlertUtil.showInfo(title: title, message: message, from: self)
-
+        AlertUtil.showInfo(title: title, message: message, from: self) { _ in
+            self.dismiss()
+        }
     }
 }
 

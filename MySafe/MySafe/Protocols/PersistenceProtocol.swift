@@ -12,5 +12,5 @@ protocol PersistenceProtocol {
     func add(account: Account) -> Bool
     func remove(account: Account) -> Bool
     func getAll() -> [Account]
-    func add(all: [Account]) -> Bool
+    func add(all accounts: [Account]) -> Bool
 }

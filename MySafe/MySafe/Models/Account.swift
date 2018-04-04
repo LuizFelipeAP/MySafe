@@ -8,11 +8,15 @@
 
 import Foundation
 
-class Account: Codable {
+class Account: NSObject, Codable {
     
     var application: String
     var username: String
     var passcode: String
+    
+    override var description: String {
+        return "Application: \(self.application) - Username: \(self.username)"
+    }
     
     init(application: String = "www.site.com",
          username: String = "username",
@@ -22,4 +26,17 @@ class Account: Codable {
         self.username = username
         self.passcode = passcode
     }
+}
+
+//**************************************************************************************
+//
+// MARK: - Equatable Extension
+//
+//**************************************************************************************
+extension Account {
+    
+    static func ==(lhs: Account, rhs: Account) -> Bool {
+        return lhs.application == rhs.application && lhs.username == rhs.username
+    }
+    
 }

@@ -7,27 +7,67 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 class KeychainPersistence: PersistenceProtocol {
     
+    //MARK: - Properties
+    static var shared: KeychainPersistence = {
+        return KeychainPersistence()
+    }()
+    
+    struct Constants {
+        static let key: String = "ACCOUNTS"
+    }
+    
+    private init() { }
+    
+    //MARK: - Methods
     func add(account: Account) -> Bool {
+        var saved: Bool = false
         
-        return true
+        var accounts = self.getAll()
+        
+        if !accounts.contains(account) {
+            accounts.append(account)
+            saved = self.add(all: accounts)
+        }
+        
+        return saved
     }
     
     func remove(account: Account) -> Bool {
+
+        var accounts = self.getAll()
         
+        guard let _ = accounts.removeElement(account) else {
+            return false
+        }
+    
         return true
     }
     
     func getAll() -> [Account] {
         
-        return []
+        let contains: Data? = KeychainWrapper.standard.data(forKey: Constants.key)
+        
+        guard let data = contains else {
+            return []
+        }
+        
+        guard let accounts: [Account] = try? JSONDecoder().decode([Account].self, from: data) else {
+            return []
+        }
+        
+        return accounts
     }
     
-    func add(all: [Account]) -> Bool {
+    func add(all accounts: [Account]) -> Bool {
         
-        return true
+        let d = try! JSONEncoder().encode(accounts)
+        let saved = KeychainWrapper.standard.set(d, forKey: Constants.key)
+        
+        return saved
     }
 
 }

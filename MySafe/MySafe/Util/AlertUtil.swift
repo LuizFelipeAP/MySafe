@@ -10,11 +10,11 @@ import UIKit
 
 class AlertUtil {
 
-    static func showInfo(title: String, message: String, from viewController: UIViewController) {
+    static func showInfo(title: String, message: String, from viewController: UIViewController, completion: ((UIAlertAction) -> ())? = nil) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: completion)
         
         alert.addAction(okAction)
         

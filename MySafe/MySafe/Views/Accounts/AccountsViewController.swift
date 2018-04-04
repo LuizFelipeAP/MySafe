@@ -21,6 +21,8 @@ class AccountsViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapMethod))
         self.tableView.addGestureRecognizer(tap)
         
+        print(KeychainPersistence.shared.getAll())
+        
     }
 
     override func didReceiveMemoryWarning() {

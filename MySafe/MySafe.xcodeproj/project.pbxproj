@@ -18,6 +18,7 @@
 		2C6099722074510C00C62FC5 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099712074510C00C62FC5 /* Account.swift */; };
 		2C6099742074571D00C62FC5 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099732074571D00C62FC5 /* PersistenceService.swift */; };
 		2C6099772074575200C62FC5 /* PersistenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099762074575200C62FC5 /* PersistenceProtocol.swift */; };
+		2C60997A20745A7600C62FC5 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C60997920745A7600C62FC5 /* Array+Extension.swift */; };
 		2C7D8ABF2073DB0000F01D11 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D8ABE2073DB0000F01D11 /* APIService.swift */; };
 		2C7D8AC12073DD6300F01D11 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D8AC02073DD6300F01D11 /* APIResponse.swift */; };
 		2CA38D2B2072FA2A00251FA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38D2A2072FA2A00251FA1 /* LoginViewController.swift */; };
@@ -53,6 +54,7 @@
 		2C6099712074510C00C62FC5 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		2C6099732074571D00C62FC5 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		2C6099762074575200C62FC5 /* PersistenceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProtocol.swift; sourceTree = "<group>"; };
+		2C60997920745A7600C62FC5 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		2C7D8ABE2073DB0000F01D11 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		2C7D8AC02073DD6300F01D11 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		2CA38D2A2072FA2A00251FA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				2C7D8ABD2073DAE100F01D11 /* Services */,
 				2C6099752074574000C62FC5 /* Protocols */,
 				2CA38D51207314F600251FA1 /* Util */,
+				2C60997820745A6500C62FC5 /* Extensions */,
 			);
 			path = MySafe;
 			sourceTree = "<group>";
@@ -122,6 +125,14 @@
 				2C6099762074575200C62FC5 /* PersistenceProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2C60997820745A6500C62FC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2C60997920745A7600C62FC5 /* Array+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2C7D8ABD2073DAE100F01D11 /* Services */ = {
@@ -408,6 +419,7 @@
 				2C4602292072F71900372E8E /* AppDelegate.swift in Sources */,
 				2CA38D4A2072FD1D00251FA1 /* NewAccountViewController.swift in Sources */,
 				2C38C714207441550092B929 /* SignupManager.swift in Sources */,
+				2C60997A20745A7600C62FC5 /* Array+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
