@@ -27,6 +27,7 @@ class AccountsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.accountsManager.fetchAccounts()
         self.tableView.reloadData()
     }
 
@@ -88,6 +89,8 @@ extension AccountsViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        self.tableView.tableFooterView = UIView()
+        
         //RegisterNibs
         let headerNib = UINib(nibName: CustomTableViewHeader.identifier, bundle: nil)
         self.tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: CustomTableViewHeader.identifier)
@@ -96,6 +99,8 @@ extension AccountsViewController {
     func presentDetail(forAccount account: Account) {
         let acStoryboard = UIStoryboard(name: "AccountDetail", bundle: nil)
         guard let accountDetailVC = acStoryboard.instantiateInitialViewController() as? AccountDetailViewController else { return }
+        
+        accountDetailVC.bindManagers(account: account)
         
         self.navigationController?.pushViewController(accountDetailVC, animated: true)
     }
@@ -149,6 +154,8 @@ extension AccountsViewController: UITableViewDelegate {
         
         guard let account = self.accountsManager.grouped[section]?[indexPath.row] else { return }
         
+        
+        
         self.presentDetail(forAccount: account)
     }
     
@@ -169,9 +176,3 @@ extension AccountsViewController: UITableViewDelegate {
     
     
 }
-
-
-
-
-
-

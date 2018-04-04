@@ -19,9 +19,9 @@ class AccountsManager {
     
     var rowsPerSection: [Int] = []
     
-    //MARK: - Initializers
-    init() {
-        
+    //MARK: - Methods
+    
+    func fetchAccounts() {
         //Retrive all accounts from keychain
         self.accounts = KeychainPersistence.shared.getAll()
         
@@ -35,10 +35,8 @@ class AccountsManager {
         self.rowsPerSection = self.sections.map {
             return self.grouped[$0]?.count ?? 0
         }
-        
     }
     
-    //MARK: - Methods
     func groupByName() -> [String: [Account]] {
         
         var groups: [String: [Account]] = [:]

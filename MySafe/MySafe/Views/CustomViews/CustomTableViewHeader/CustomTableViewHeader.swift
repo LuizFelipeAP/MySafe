@@ -20,7 +20,7 @@ class CustomTableViewHeader: UITableViewHeaderFooterView {
     }
     
     static var height: CGFloat {
-        return 66.0
+        return 50.0
     }
     
     @IBOutlet weak var applicationNameLabel: UILabel!
@@ -45,15 +45,7 @@ class CustomTableViewHeader: UITableViewHeaderFooterView {
         
 //        if let token = UserSession.shared.token {
         
-            let token = "11bd7a1e-84ab-440b-a81e-68452f9554e0"
-        
-            let modifier = AnyModifier { request in
-                var mutableRequest = request
-                mutableRequest.setValue(token, forHTTPHeaderField: "authorization")
-                return mutableRequest
-            }
-            
-            self.applicationLogoImageView.kf.setImage(with: finalURL, options: [.requestModifier(modifier)])
+            self.applicationLogoImageView.kf.setImage(with: finalURL, options: [UserSession.shared.kingfisherModifier])
 //        }
     }
 }
