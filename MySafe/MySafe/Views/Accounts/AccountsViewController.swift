@@ -89,6 +89,8 @@ extension AccountsViewController {
         self.tableView.delegate = self
         
         //RegisterNibs
+        let headerNib = UINib(nibName: CustomTableViewHeader.identifier, bundle: nil)
+        self.tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: CustomTableViewHeader.identifier)
     }
     
     func presentDetail(forAccount account: Account) {
@@ -116,10 +118,6 @@ extension AccountsViewController: UITableViewDataSource {
         let rowsCount = self.accountsManager.rowsPerSection.get(at: section)
         
         return rowsCount ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.accountsManager.sections[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -153,6 +151,22 @@ extension AccountsViewController: UITableViewDelegate {
         
         self.presentDetail(forAccount: account)
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: CustomTableViewHeader.identifier) as? CustomTableViewHeader else { return UIView() }
+        
+        let sectionDesc = self.accountsManager.sections[section]
+        
+        header.configure(with: sectionDesc)
+        
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CustomTableViewHeader.height
+    }
+    
     
 }
 

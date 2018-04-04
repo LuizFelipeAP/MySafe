@@ -19,6 +19,8 @@
 		2C6099742074571D00C62FC5 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099732074571D00C62FC5 /* PersistenceService.swift */; };
 		2C6099772074575200C62FC5 /* PersistenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099762074575200C62FC5 /* PersistenceProtocol.swift */; };
 		2C60997A20745A7600C62FC5 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C60997920745A7600C62FC5 /* Array+Extension.swift */; };
+		2C60997E207531F400C62FC5 /* CustomTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C60997D207531F400C62FC5 /* CustomTableViewHeader.swift */; };
+		2C6099802075320500C62FC5 /* CustomTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C60997F2075320500C62FC5 /* CustomTableViewHeader.xib */; };
 		2C7D8ABF2073DB0000F01D11 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D8ABE2073DB0000F01D11 /* APIService.swift */; };
 		2C7D8AC12073DD6300F01D11 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D8AC02073DD6300F01D11 /* APIResponse.swift */; };
 		2CA38D2B2072FA2A00251FA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38D2A2072FA2A00251FA1 /* LoginViewController.swift */; };
@@ -55,6 +57,8 @@
 		2C6099732074571D00C62FC5 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		2C6099762074575200C62FC5 /* PersistenceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProtocol.swift; sourceTree = "<group>"; };
 		2C60997920745A7600C62FC5 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		2C60997D207531F400C62FC5 /* CustomTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewHeader.swift; sourceTree = "<group>"; };
+		2C60997F2075320500C62FC5 /* CustomTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewHeader.xib; sourceTree = "<group>"; };
 		2C7D8ABE2073DB0000F01D11 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		2C7D8AC02073DD6300F01D11 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		2CA38D2A2072FA2A00251FA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +139,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2C60997B207530C200C62FC5 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				2C60997C207530DA00C62FC5 /* CustomTableViewHeader */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		2C60997C207530DA00C62FC5 /* CustomTableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				2C60997D207531F400C62FC5 /* CustomTableViewHeader.swift */,
+				2C60997F2075320500C62FC5 /* CustomTableViewHeader.xib */,
+			);
+			path = CustomTableViewHeader;
+			sourceTree = "<group>";
+		};
 		2C7D8ABD2073DAE100F01D11 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +190,7 @@
 		2CA38D232072F9A800251FA1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2C60997B207530C200C62FC5 /* CustomViews */,
 				2CA38D402072FC7400251FA1 /* NewAccount */,
 				2CA38D3F2072FC6E00251FA1 /* AccountDetail */,
 				2CA38D3E2072FC6800251FA1 /* Accounts */,
@@ -323,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4602332072F71A00372E8E /* LaunchScreen.storyboard in Resources */,
+				2C6099802075320500C62FC5 /* CustomTableViewHeader.xib in Resources */,
 				2CA38D4C2072FD2300251FA1 /* NewAccount.storyboard in Resources */,
 				2CA38D442072FC8E00251FA1 /* Accounts.storyboard in Resources */,
 				2C4602302072F71A00372E8E /* Assets.xcassets in Resources */,
@@ -420,6 +443,7 @@
 				2CA38D4A2072FD1D00251FA1 /* NewAccountViewController.swift in Sources */,
 				2C38C714207441550092B929 /* SignupManager.swift in Sources */,
 				2C60997A20745A7600C62FC5 /* Array+Extension.swift in Sources */,
+				2C60997E207531F400C62FC5 /* CustomTableViewHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
