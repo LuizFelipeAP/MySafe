@@ -13,29 +13,26 @@ class AccountsViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
+    //MARK: - Properties
+    var accountsManager: AccountsManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.bindManagers()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapMethod))
-        self.tableView.addGestureRecognizer(tap)
+        self.configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        print(KeychainPersistence.shared.getAll())
-        
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    //MARK: - Methods
-    @objc func tapMethod() {
-        let acStoryboard = UIStoryboard(name: "AccountDetail", bundle: nil)
-        guard let accountDetailVC = acStoryboard.instantiateInitialViewController() as? AccountDetailViewController else { return }
-        
-        self.navigationController?.pushViewController(accountDetailVC, animated: true)
     }
   
 }
@@ -77,11 +74,87 @@ extension AccountsViewController {
 //**************************************************************************************
 extension AccountsViewController {
     
+    func bindManagers() {
+        let accountsManager = AccountsManager()
+        self.bind(accountsManager: accountsManager)
+    }
+    
+    func bind(accountsManager: AccountsManager) {
+        self.accountsManager = accountsManager
+    }
+    
+    func configureTableView() {
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        //RegisterNibs
+    }
+    
+    func presentDetail(forAccount account: Account) {
+        let acStoryboard = UIStoryboard(name: "AccountDetail", bundle: nil)
+        guard let accountDetailVC = acStoryboard.instantiateInitialViewController() as? AccountDetailViewController else { return }
+        
+        self.navigationController?.pushViewController(accountDetailVC, animated: true)
+    }
+    
 }
 
+//**************************************************************************************
+//
+// MARK: - UITableViewDataSource Extension
+//
+//**************************************************************************************
+extension AccountsViewController: UITableViewDataSource {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.accountsManager.sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        let rowsCount = self.accountsManager.rowsPerSection.get(at: section)
+        
+        return rowsCount ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.accountsManager.sections[section]
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        
+        let section = self.accountsManager.sections[indexPath.section]
+        
+        if let account: Account = self.accountsManager.grouped[section]?[indexPath.row] {
+            cell.textLabel?.text = account.username
+        }
+        
+        cell.accessoryType = .disclosureIndicator
+        
+        return cell
+    }
+}
 
-
+//**************************************************************************************
+//
+// MARK: - UITableViewDelegate Extension
+//
+//**************************************************************************************
+extension AccountsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let section = self.accountsManager.sections[indexPath.section]
+        
+        guard let account = self.accountsManager.grouped[section]?[indexPath.row] else { return }
+        
+        self.presentDetail(forAccount: account)
+    }
+    
+}
 
 
 
