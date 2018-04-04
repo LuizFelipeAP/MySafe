@@ -43,13 +43,18 @@ class LoginManager {
                     }
                     
                 } else {
-                    message = "Server Error"
+                    
+                    if let apiMessage = apiResponse?.message {
+                        message = apiMessage
+                    } else {
+                        message = "Server Error"
+                    }
                 }
                 
                 completion(isSuccess, message)
             }
         } else {
-            completion(false, "Invalid Credentials")
+            completion(false, "Invalid e-mail or passcode")
         }
     }
     

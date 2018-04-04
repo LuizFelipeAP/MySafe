@@ -54,7 +54,7 @@ class SignupManager {
                 completion(isSuccess, message)
             }
         } else {
-            completion(false, "Invalid Credentials")
+            completion(false, "Invalid e-mail or passcode")
         }
     }
     
