@@ -13,6 +13,7 @@ enum EndPoints: String {
     
     case login = "https://dev.people.com.ai/mobile/api/v2/login"
     case register = "https://dev.people.com.ai/mobile/api/v2/register"
+    case logo = "https://dev.people.com.ai/mobile/api/v2/logo"
 }
 
 class APIService {

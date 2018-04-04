@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.0)
+  - Kingfisher (4.6.3)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
@@ -7,16 +8,18 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
+  - Kingfisher (~> 4.0)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
   - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Kingfisher: 98e6d5b5e807645743e8ed5ececd25d688d38452
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 317b26095bff1d51ea79d3da766991fc534b0948
+PODFILE CHECKSUM: 362aed73afa19aac29b47bc0a7ab003c6ef6c2fa
 
 COCOAPODS: 1.4.0

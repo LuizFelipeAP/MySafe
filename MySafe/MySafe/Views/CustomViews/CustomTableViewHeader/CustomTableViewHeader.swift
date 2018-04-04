@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CustomTableViewHeader: UITableViewHeaderFooterView {
 
@@ -31,5 +32,28 @@ class CustomTableViewHeader: UITableViewHeaderFooterView {
     
     func configure(with sectionName: String) {
         self.applicationNameLabel.text = sectionName
+        self.configureImageView(forLogoName: sectionName)
+    }
+    
+    func configureImageView(forLogoName logoName: String) {
+        
+        let url: String = EndPoints.logo.rawValue
+        
+        let finalURL = URL(string: "\(url)/\(logoName)")
+        
+        //Add token to request
+        
+//        if let token = UserSession.shared.token {
+        
+            let token = "11bd7a1e-84ab-440b-a81e-68452f9554e0"
+        
+            let modifier = AnyModifier { request in
+                var mutableRequest = request
+                mutableRequest.setValue(token, forHTTPHeaderField: "authorization")
+                return mutableRequest
+            }
+            
+            self.applicationLogoImageView.kf.setImage(with: finalURL, options: [.requestModifier(modifier)])
+//        }
     }
 }
