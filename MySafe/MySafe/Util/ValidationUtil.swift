@@ -19,7 +19,7 @@ class ValidationUtil {
     
     func isValid(name: String) -> Bool {
         let trimmedUserName = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        let isMinimumLenght = trimmedUserName.count > 3
+        let isMinimumLenght = trimmedUserName.count > 2
         
         return isMinimumLenght
     }

@@ -13,12 +13,12 @@ class User: NSObject {
     let name: String
     let username: String
     let passcode: String
-    var accounts: [String]
+    var accounts: [Account]
     
     init(name: String = "Mock",
          username: String = "mock@mail.com",
          passcode: String = "Mock@#3456",
-         accounts: [String] = []) {
+         accounts: [Account] = []) {
         self.name = name
         self.username = username
         self.passcode = passcode
