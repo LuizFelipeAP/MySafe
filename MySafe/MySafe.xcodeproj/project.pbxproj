@@ -16,6 +16,8 @@
 		2C60996E20744E4600C62FC5 /* AccountsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C60996D20744E4600C62FC5 /* AccountsManager.swift */; };
 		2C6099702074500300C62FC5 /* NewAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C60996F2074500300C62FC5 /* NewAccountManager.swift */; };
 		2C6099722074510C00C62FC5 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099712074510C00C62FC5 /* Account.swift */; };
+		2C6099742074571D00C62FC5 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099732074571D00C62FC5 /* PersistenceService.swift */; };
+		2C6099772074575200C62FC5 /* PersistenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099762074575200C62FC5 /* PersistenceProtocol.swift */; };
 		2C7D8ABF2073DB0000F01D11 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D8ABE2073DB0000F01D11 /* APIService.swift */; };
 		2C7D8AC12073DD6300F01D11 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D8AC02073DD6300F01D11 /* APIResponse.swift */; };
 		2CA38D2B2072FA2A00251FA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38D2A2072FA2A00251FA1 /* LoginViewController.swift */; };
@@ -49,6 +51,8 @@
 		2C60996D20744E4600C62FC5 /* AccountsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsManager.swift; sourceTree = "<group>"; };
 		2C60996F2074500300C62FC5 /* NewAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountManager.swift; sourceTree = "<group>"; };
 		2C6099712074510C00C62FC5 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		2C6099732074571D00C62FC5 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		2C6099762074575200C62FC5 /* PersistenceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProtocol.swift; sourceTree = "<group>"; };
 		2C7D8ABE2073DB0000F01D11 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		2C7D8AC02073DD6300F01D11 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		2CA38D2A2072FA2A00251FA1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -106,15 +110,25 @@
 				2CA38D232072F9A800251FA1 /* Views */,
 				2CA38D242072F9BE00251FA1 /* Managers */,
 				2C7D8ABD2073DAE100F01D11 /* Services */,
+				2C6099752074574000C62FC5 /* Protocols */,
 				2CA38D51207314F600251FA1 /* Util */,
 			);
 			path = MySafe;
+			sourceTree = "<group>";
+		};
+		2C6099752074574000C62FC5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2C6099762074575200C62FC5 /* PersistenceProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		2C7D8ABD2073DAE100F01D11 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				2C7D8ABE2073DB0000F01D11 /* APIService.swift */,
+				2C6099732074571D00C62FC5 /* PersistenceService.swift */,
 				2C60996B20744B0600C62FC5 /* UserSession.swift */,
 			);
 			path = Services;
@@ -379,10 +393,12 @@
 				2C7D8ABF2073DB0000F01D11 /* APIService.swift in Sources */,
 				2C6099722074510C00C62FC5 /* Account.swift in Sources */,
 				2C7D8AC12073DD6300F01D11 /* APIResponse.swift in Sources */,
+				2C6099772074575200C62FC5 /* PersistenceProtocol.swift in Sources */,
 				2C6099702074500300C62FC5 /* NewAccountManager.swift in Sources */,
 				2C60996C20744B0600C62FC5 /* UserSession.swift in Sources */,
 				2C1BD55A2073E7240090E233 /* AlertUtil.swift in Sources */,
 				2CA38D532073150400251FA1 /* RegexUtil.swift in Sources */,
+				2C6099742074571D00C62FC5 /* PersistenceService.swift in Sources */,
 				2CA38D2B2072FA2A00251FA1 /* LoginViewController.swift in Sources */,
 				2CA38D502073084300251FA1 /* User.swift in Sources */,
 				2C60996E20744E4600C62FC5 /* AccountsManager.swift in Sources */,
