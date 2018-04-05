@@ -10,6 +10,7 @@ import Foundation
 
 protocol PersistenceProtocol {
     func add(account: Account) -> Bool
+    func update(account: Account) -> Bool
     func remove(account: Account) -> Bool
     func getAll() -> [Account]
     func add(all accounts: [Account]) -> Bool

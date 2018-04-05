@@ -42,4 +42,21 @@ extension Account {
         return lhs.id == rhs.id
     }
     
+    /**
+     Compares if all atributes are equals
+     
+     - parameters:
+        - account: the account to compare
+     
+     - returns:
+        A boolean value indicating if all attributes are equal
+     
+     */
+    func veryEqual(to account: Account) -> Bool {
+        return self.id == account.id
+            && self.application == account.application
+            && self.username == account.username
+            && self.passcode == account.passcode
+    }
+    
 }

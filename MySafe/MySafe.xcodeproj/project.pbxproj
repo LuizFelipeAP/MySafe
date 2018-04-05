@@ -17,7 +17,7 @@
 		2C60996E20744E4600C62FC5 /* AccountsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C60996D20744E4600C62FC5 /* AccountsManager.swift */; };
 		2C6099702074500300C62FC5 /* NewAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C60996F2074500300C62FC5 /* NewAccountManager.swift */; };
 		2C6099722074510C00C62FC5 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099712074510C00C62FC5 /* Account.swift */; };
-		2C6099742074571D00C62FC5 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099732074571D00C62FC5 /* PersistenceService.swift */; };
+		2C6099742074571D00C62FC5 /* KeychainPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099732074571D00C62FC5 /* KeychainPersistence.swift */; };
 		2C6099772074575200C62FC5 /* PersistenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6099762074575200C62FC5 /* PersistenceProtocol.swift */; };
 		2C60997A20745A7600C62FC5 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C60997920745A7600C62FC5 /* Array+Extension.swift */; };
 		2C60997E207531F400C62FC5 /* CustomTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C60997D207531F400C62FC5 /* CustomTableViewHeader.swift */; };
@@ -56,7 +56,7 @@
 		2C60996D20744E4600C62FC5 /* AccountsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsManager.swift; sourceTree = "<group>"; };
 		2C60996F2074500300C62FC5 /* NewAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountManager.swift; sourceTree = "<group>"; };
 		2C6099712074510C00C62FC5 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		2C6099732074571D00C62FC5 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		2C6099732074571D00C62FC5 /* KeychainPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPersistence.swift; sourceTree = "<group>"; };
 		2C6099762074575200C62FC5 /* PersistenceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceProtocol.swift; sourceTree = "<group>"; };
 		2C60997920745A7600C62FC5 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		2C60997D207531F400C62FC5 /* CustomTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewHeader.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				2C7D8ABE2073DB0000F01D11 /* APIService.swift */,
-				2C6099732074571D00C62FC5 /* PersistenceService.swift */,
+				2C6099732074571D00C62FC5 /* KeychainPersistence.swift */,
 				2C60996B20744B0600C62FC5 /* UserSession.swift */,
 			);
 			path = Services;
@@ -440,7 +440,7 @@
 				2C60996C20744B0600C62FC5 /* UserSession.swift in Sources */,
 				2C1BD55A2073E7240090E233 /* AlertUtil.swift in Sources */,
 				2CA38D532073150400251FA1 /* RegexUtil.swift in Sources */,
-				2C6099742074571D00C62FC5 /* PersistenceService.swift in Sources */,
+				2C6099742074571D00C62FC5 /* KeychainPersistence.swift in Sources */,
 				2CA38D2B2072FA2A00251FA1 /* LoginViewController.swift in Sources */,
 				2CA38D502073084300251FA1 /* User.swift in Sources */,
 				2C60996E20744E4600C62FC5 /* AccountsManager.swift in Sources */,

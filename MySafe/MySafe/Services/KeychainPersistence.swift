@@ -23,6 +23,7 @@ class KeychainPersistence: PersistenceProtocol {
     private init() { }
     
     //MARK: - Methods
+    
     func add(account: Account) -> Bool {
         var saved: Bool = false
         
@@ -34,6 +35,17 @@ class KeychainPersistence: PersistenceProtocol {
         }
         
         return saved
+    }
+    
+    func update(account: Account) -> Bool {
+        
+        var accounts = self.getAll()
+        
+        guard let indexToEdit = accounts.index(where: { $0 == account }) else { return false }
+        
+        accounts[indexToEdit] = account
+        
+        return self.add(all: accounts)
     }
     
     func remove(account: Account) -> Bool {

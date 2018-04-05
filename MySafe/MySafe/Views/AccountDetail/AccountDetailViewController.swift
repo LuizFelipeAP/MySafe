@@ -25,15 +25,18 @@ class AccountDetailViewController: UIViewController {
     //MARK: - Properties
     
     var revealButton: UIButton!
+    var saveBarButtonItem: UIBarButtonItem!
     
     var accountDetailManager: AccountDetailManager!
     
+    var latestFromFields: Observable<(String?, String?, String?)>!
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configureRevealButton()
+        self.configureEditBarButtonItem()
         self.bindUI()
     }
 
@@ -132,6 +135,37 @@ extension AccountDetailViewController {
                 }
             })
             .disposed(by: self.disposeBag)
+        
+        //Edition
+        
+        self.latestFromFields = Observable.combineLatest(self.applicationNameTextField.rx.text,
+                                                         self.usernameTextField.rx.text,
+                                                         self.passcodeTextField.rx.text)
+        
+        self.latestFromFields
+            .subscribe(onNext: {
+                
+                if let application = $0.0,
+                    let username = $0.1,
+                    let passcode = $0.2 {
+                    
+                    let eddited = Account(application: application, username: username, passcode: passcode)
+                    
+                    self.accountDetailManager.edditedAccount = eddited
+                    
+                    self.saveBarButtonItem.isEnabled = self.accountDetailManager.isAccountEddited()
+                }
+
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.saveBarButtonItem.rx
+            .tap
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .subscribe(onNext: { _ in
+                self.handleSaveBarButtonItemClick()
+            })
+            .disposed(by: self.disposeBag)
     }
     
     func configureRevealButton() {
@@ -149,6 +183,12 @@ extension AccountDetailViewController {
         self.passcodeTextField.rightViewMode = .always
         
         self.revealButton = button
+    }
+    
+    func configureEditBarButtonItem() {
+        
+        self.saveBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
+        self.navigationItem.setRightBarButton(self.saveBarButtonItem, animated: true)
     }
     
     /**
@@ -176,6 +216,24 @@ extension AccountDetailViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         }
+    }
+    
+   
+    func handleSaveBarButtonItemClick() {
+        let saveResult = self.accountDetailManager.editAccount()
+        
+        let title: String
+        let message: String
+        
+        message = saveResult.1
+        
+        if saveResult.0 {
+            title = "Success"
+        } else {
+            title = "Failure"
+        }
+        
+        AlertUtil.showInfo(title: title, message: message, from: self)
     }
     
 }
