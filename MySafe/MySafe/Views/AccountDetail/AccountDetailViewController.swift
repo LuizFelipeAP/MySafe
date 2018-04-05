@@ -118,6 +118,20 @@ extension AccountDetailViewController {
                 UIPasteboard.general.string = self.passcodeTextField.text
             })
             .disposed(by: self.disposeBag)
+        
+        //Delete Button
+        self.deleteButton.rx.tap
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .subscribe(onNext: {
+                
+                AlertUtil.showConfirmation(title: "Delete account", message: "Are you sure you want to delete this account?", from: self) { _ in
+                
+                    let deleted = self.accountDetailManager.removeAccount()
+                    
+                    self.presentDeletionAlert(forState: deleted)
+                }
+            })
+            .disposed(by: self.disposeBag)
     }
     
     func configureRevealButton() {
@@ -135,6 +149,33 @@ extension AccountDetailViewController {
         self.passcodeTextField.rightViewMode = .always
         
         self.revealButton = button
+    }
+    
+    /**
+     Present an alert informing if the deletion was sucessfull or not
+     
+     - parameters:
+        - state: A boolean value indicating if the deletion was sucessfull
+     
+     */
+    func presentDeletionAlert(forState state: Bool) {
+        
+        let title: String
+        let message: String
+        
+        if state {
+            title = "Success"
+            message = "Account deleted"
+        } else {
+            title = "Failure"
+            message = "Can't delete this account, try again"
+        }
+        
+        AlertUtil.showInfo(title: title, message: message, from: self) { _ in
+            if state {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
 }

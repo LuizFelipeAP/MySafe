@@ -40,11 +40,11 @@ class KeychainPersistence: PersistenceProtocol {
 
         var accounts = self.getAll()
         
-        guard let _ = accounts.removeElement(account) else {
-            return false
-        }
+        guard let indexToRemove = accounts.index(where: { $0 == account }) else { return false }
     
-        return true
+        accounts.remove(at: indexToRemove)
+        
+        return self.add(all: accounts)
     }
     
     func getAll() -> [Account] {

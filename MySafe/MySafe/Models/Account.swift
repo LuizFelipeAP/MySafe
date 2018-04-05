@@ -10,6 +10,7 @@ import Foundation
 
 class Account: NSObject, Codable {
     
+    var id: String
     var application: String
     var username: String
     var passcode: String
@@ -25,6 +26,8 @@ class Account: NSObject, Codable {
         self.application = application
         self.username = username
         self.passcode = passcode
+        
+        self.id = UUID().uuidString
     }
 }
 
@@ -36,7 +39,7 @@ class Account: NSObject, Codable {
 extension Account {
     
     static func ==(lhs: Account, rhs: Account) -> Bool {
-        return lhs.application == rhs.application && lhs.username == rhs.username
+        return lhs.id == rhs.id
     }
     
 }

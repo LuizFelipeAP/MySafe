@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class AccountsViewController: UIViewController {
 
@@ -18,7 +19,7 @@ class AccountsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.bindManagers()
         
         self.configureTableView()

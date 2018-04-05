@@ -11,23 +11,6 @@ import Foundation
 extension Array where Element: Equatable {
     
     /**
-     Remove an element from a collection passing the element to remove
-     
-     - parameters:
-        - element: The element that wants to be removed
-     
-     - returns:
-        The element removed or nil
-     
-     */
-    mutating func removeElement(_ element: Element) -> Element? {
-        
-        guard let index = self.index(of: element) else { return nil }
-        
-        return remove(at: index)
-    }
-    
-    /**
      You can use this method when you want to retirve something from an array in a safe mode.
      
      - Usage Description:

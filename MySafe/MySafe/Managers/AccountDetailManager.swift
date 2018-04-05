@@ -18,5 +18,10 @@ class AccountDetailManager {
     init(account: Account) {
         self.account.accept(account)
     }
+    
+    func removeAccount() -> Bool {
+        guard let account = self.account.value else { return false }
+        return KeychainPersistence.shared.remove(account: account)
+    }
 }
 
