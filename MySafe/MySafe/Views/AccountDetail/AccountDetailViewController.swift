@@ -110,6 +110,14 @@ extension AccountDetailViewController {
                 }
             })
             .disposed(by: self.disposeBag)
+        
+        //Copy Button
+        self.copyButton.rx.tap
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .subscribe(onNext: {
+                UIPasteboard.general.string = self.passcodeTextField.text
+            })
+            .disposed(by: self.disposeBag)
     }
     
     func configureRevealButton() {
