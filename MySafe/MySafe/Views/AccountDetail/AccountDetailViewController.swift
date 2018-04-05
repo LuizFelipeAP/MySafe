@@ -23,6 +23,9 @@ class AccountDetailViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     
     //MARK: - Properties
+    
+    var revealButton: UIButton!
+    
     var accountDetailManager: AccountDetailManager!
     
     let disposeBag = DisposeBag()
@@ -30,6 +33,7 @@ class AccountDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.configureRevealButton()
         self.bindUI()
     }
 
@@ -93,6 +97,36 @@ extension AccountDetailViewController {
             .bind(to: self.passcodeTextField.rx.text)
             .disposed(by: self.disposeBag)
         
+        //Reveal Button
+        self.revealButton.rx.tap
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .subscribe(onNext: {
+                if self.passcodeTextField.isSecureTextEntry {
+                    self.passcodeTextField.isSecureTextEntry = false
+                    self.revealButton.setImage(#imageLiteral(resourceName: "unlocked"), for: .normal)
+                } else {
+                    self.passcodeTextField.isSecureTextEntry = true
+                    self.revealButton.setImage(#imageLiteral(resourceName: "locked"), for: .normal)
+                }
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
+    func configureRevealButton() {
+        let button = UIButton(type: .custom)
+        
+        button.setImage(#imageLiteral(resourceName: "locked"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, -16, 0, 0)
+        button.frame = CGRect(x: CGFloat(self.passcodeTextField.frame.size.width - 25),
+                              y: CGFloat(5),
+                              width: CGFloat(15),
+                              height: CGFloat(15))
+        
+        self.passcodeTextField.rightView = button
+        self.passcodeTextField.rightViewMode = .always
+        
+        self.revealButton = button
     }
     
 }
