@@ -14,6 +14,8 @@ import Kingfisher
 class AccountDetailViewController: UIViewController {
 
     //MARK: - IBOutlets
+    @IBOutlet weak var containerView: UIView!
+    
     @IBOutlet weak var applicationLogoImageView: UIImageView!
     @IBOutlet weak var applicationNameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -35,6 +37,8 @@ class AccountDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.styleView()
+        
         self.configureRevealButton()
         self.configureEditBarButtonItem()
         self.bindUI()
@@ -236,4 +240,41 @@ extension AccountDetailViewController {
         AlertUtil.showInfo(title: title, message: message, from: self)
     }
     
+    
+    //MARK: - UI
+    fileprivate func styleView() {
+        
+        self.containerView.backgroundColor = .clear
+        
+        //Create the blur
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.containerView.insertSubview(blurView, at: 0)
+        
+        //Add Constraints
+        NSLayoutConstraint.activate([
+            blurView.heightAnchor.constraint(equalTo: self.containerView.heightAnchor, multiplier: 1),
+            blurView.widthAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 1),
+            blurView.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor),
+            blurView.centerYAnchor.constraint(equalTo: self.containerView.centerYAnchor)
+            ])
+        
+        //Round the container
+        blurView.layer.cornerRadius = 15
+        blurView.clipsToBounds = true
+        
+        
+        //Round the iamgeView
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
+        
+        self.view.layoutSubviews()
+        
+        let height = self.applicationLogoImageView.frame.height
+        self.applicationLogoImageView.layer.cornerRadius = height / 2
+        self.applicationLogoImageView.clipsToBounds = true
+    }
 }
