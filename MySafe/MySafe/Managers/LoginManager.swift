@@ -68,30 +68,32 @@ class LoginManager {
         }
     }
     
-    func authenticateWithTouchID(completion: @escaping (Bool, String?) -> (Void)) {
+    func isValidLogin() -> Bool {
         
-        let context =  LAContext()
+        let validEmail = ValidationUtil.shared.isValid(email: self.user.username)
         
-        if self.deviceSupportTouchID {
-            
-            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "You can login with your TouchID") { (success, error) in
-                
-                if success {
-                    
-                    guard let index = self.authenticatedUsers.index(where:  {
-                        $0.username == self.username.value
-                    }) else {
-                        completion(false, "")
-                        return
-                    }
-                    
-                    self.user = self.authenticatedUsers[index]
-                    
-                    self.authenticateWithAPI(completion: completion)
-                }
-            }
-        }
+        let validPass = ValidationUtil.shared.isValid(passcode: self.user.passcode)
+        
+        return validEmail && validPass
     }
+    
+    func buildUser() {
+        
+        let username = self.username.value
+        let passcode = self.passcode.value
+        
+        let user = User(username: username, passcode: passcode)
+        
+        self.user = user
+    }
+}
+
+//**************************************************************************************
+//
+// MARK: - API Related Extension
+//
+//**************************************************************************************
+extension LoginManager {
     
     func authenticateWithAPI(completion: @escaping (Bool, String) -> (Void) ) {
         APIService.shared.authenticate(user: self.user) { (apiResponse) -> (Void) in
@@ -123,23 +125,37 @@ class LoginManager {
             completion(isSuccess, message)
         }
     }
+}
+
+//**************************************************************************************
+//
+// MARK: - TouchID Related Extension
+//
+//**************************************************************************************
+extension LoginManager {
     
-    func isValidLogin() -> Bool {
+    func authenticateWithTouchID(completion: @escaping (Bool, String?) -> (Void)) {
         
-        let validEmail = ValidationUtil.shared.isValid(email: self.user.username)
+        let context =  LAContext()
         
-        let validPass = ValidationUtil.shared.isValid(passcode: self.user.passcode)
-        
-        return validEmail && validPass
-    }
-    
-    func buildUser() {
-        
-        let username = self.username.value
-        let passcode = self.passcode.value
-        
-        let user = User(username: username, passcode: passcode)
-        
-        self.user = user
+        if self.deviceSupportTouchID {
+            
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "You can login with your TouchID") { (success, error) in
+                
+                if success {
+                    
+                    guard let index = self.authenticatedUsers.index(where:  {
+                        $0.username == self.username.value
+                    }) else {
+                        completion(false, "")
+                        return
+                    }
+                    
+                    self.user = self.authenticatedUsers[index]
+                    
+                    self.authenticateWithAPI(completion: completion)
+                }
+            }
+        }
     }
 }
