@@ -48,6 +48,7 @@
 		2CC3F1D8207820CA00EBBB5E /* failureRegisterResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3F1D7207820CA00EBBB5E /* failureRegisterResponse.json */; };
 		2CC3F1DB20782F9C00EBBB5E /* LoginManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F1DA20782F9C00EBBB5E /* LoginManagerTests.swift */; };
 		2CC3F1DD2078375E00EBBB5E /* SignupManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F1DC2078375E00EBBB5E /* SignupManagerTests.swift */; };
+		2CC3F1DF20783B2B00EBBB5E /* KeychainPersistenceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F1DE20783B2B00EBBB5E /* KeychainPersistenceMock.swift */; };
 		360FF60EFBC270C903EC23DD /* Pods_MySafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */; };
 		E293E2B8FAB99B9670E8635A /* Pods_MySafeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B955DF1709F844E94B59223F /* Pods_MySafeTests.framework */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 		2CC3F1D7207820CA00EBBB5E /* failureRegisterResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = failureRegisterResponse.json; sourceTree = "<group>"; };
 		2CC3F1DA20782F9C00EBBB5E /* LoginManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManagerTests.swift; sourceTree = "<group>"; };
 		2CC3F1DC2078375E00EBBB5E /* SignupManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupManagerTests.swift; sourceTree = "<group>"; };
+		2CC3F1DE20783B2B00EBBB5E /* KeychainPersistenceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPersistenceMock.swift; sourceTree = "<group>"; };
 		8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8983A1BDA836C2555271C8DD /* Pods-MySafeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySafeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySafeTests/Pods-MySafeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B955DF1709F844E94B59223F /* Pods_MySafeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySafeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,6 +343,7 @@
 			children = (
 				2CC3F1D42078207C00EBBB5E /* JSONs */,
 				2CC3F1CE2078187800EBBB5E /* APIServiceMock.swift */,
+				2CC3F1DE20783B2B00EBBB5E /* KeychainPersistenceMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 				2CA38D532073150400251FA1 /* RegexUtil.swift in Sources */,
 				2C6099742074571D00C62FC5 /* KeychainPersistence.swift in Sources */,
 				2CA38D2B2072FA2A00251FA1 /* LoginViewController.swift in Sources */,
+				2CC3F1DF20783B2B00EBBB5E /* KeychainPersistenceMock.swift in Sources */,
 				2CA38D502073084300251FA1 /* User.swift in Sources */,
 				2C60996E20744E4600C62FC5 /* AccountsManager.swift in Sources */,
 				2CA38D422072FC8800251FA1 /* AccountsViewController.swift in Sources */,
