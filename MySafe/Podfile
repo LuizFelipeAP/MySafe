@@ -10,10 +10,11 @@ target 'MySafe' do
   pod 'IQKeyboardManagerSwift'
 end
 
-#Uncomment the bellow target for dependecies for tests
-#target 'MySafeTests' do 
-#  use_frameworks!
-#end
+target 'MySafeTests' do 
+  use_frameworks!
+  pod 'Quick'
+  pod 'Nimble'
+end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
