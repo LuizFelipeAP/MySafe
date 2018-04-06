@@ -38,10 +38,10 @@ class Account: NSObject, Codable {
 //**************************************************************************************
 extension Account {
     
-    static func ==(lhs: Account, rhs: Account) -> Bool {
-        return lhs.id == rhs.id
+    override func isEqual(_ object: Any?) -> Bool {
+        return self.id == (object as? Account)?.id
     }
-
+    
     /**
      Compares if all atributes are equals
      

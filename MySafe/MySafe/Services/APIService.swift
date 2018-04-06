@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-enum EndPoints: String {
+enum EndPoints: String {    
     
     case login = "https://dev.people.com.ai/mobile/api/v2/login"
     case register = "https://dev.people.com.ai/mobile/api/v2/register"
@@ -42,7 +42,12 @@ class APIService: APIServiceProtocol {
             .validate(statusCode: 200..<300)
             .responseData { (dataResponse) in
                 
-                let apiResponse = self.parse(dataResponse: dataResponse)
+                guard let data = dataResponse.data else {
+                    completion(nil)
+                    return
+                }
+                
+                let apiResponse = self.parse(data: data)
                 
                 completion(apiResponse)
         }
@@ -71,7 +76,12 @@ class APIService: APIServiceProtocol {
             .validate(statusCode: 200..<300)
             .responseData { (dataResponse) in
                 
-                let apiResponse = self.parse(dataResponse: dataResponse)
+                guard let data = dataResponse.data else {
+                    completion(nil)
+                    return
+                }
+                
+                let apiResponse = self.parse(data: data)
                 
                 completion(apiResponse)
         }
@@ -90,12 +100,7 @@ extension APIService {
         return ["Content-Type": "application/json"]
     }
     
-    func parse(dataResponse: DataResponse<Data>) -> APIResponse? {
-        
-        //Validate if the response is not nil
-        guard let data = dataResponse.data else {
-            return nil
-        }
+    func parse(data: Data) -> APIResponse? {
         
         //Decode the response into an APIResponse
         let apiResposne = try? JSONDecoder().decode(APIResponse.self, from: data)

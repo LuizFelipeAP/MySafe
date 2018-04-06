@@ -11,5 +11,6 @@ import Foundation
 protocol APIServiceProtocol {
     func authenticate(user: User, completion: @escaping (APIResponse?) -> (Void))
     func postNew(user: User, completion: @escaping (APIResponse?) -> (Void))
-
+    
+    func parse(data: Data) -> APIResponse?
 }

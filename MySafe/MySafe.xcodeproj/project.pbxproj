@@ -41,6 +41,12 @@
 		2CC3F1C62077FB4200EBBB5E /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F1C52077FB4200EBBB5E /* UserTests.swift */; };
 		2CC3F1C82077FD9500EBBB5E /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F1C72077FD9500EBBB5E /* AccountTests.swift */; };
 		2CC3F1CB2078169000EBBB5E /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F1CA2078169000EBBB5E /* APIServiceProtocol.swift */; };
+		2CC3F1CF2078187800EBBB5E /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F1CE2078187800EBBB5E /* APIServiceMock.swift */; };
+		2CC3F1D120781DBB00EBBB5E /* successLoginResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3F1D020781DBB00EBBB5E /* successLoginResponse.json */; };
+		2CC3F1D320781DC800EBBB5E /* failureLoginResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3F1D220781DC800EBBB5E /* failureLoginResponse.json */; };
+		2CC3F1D6207820B100EBBB5E /* successRegisterResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3F1D5207820B100EBBB5E /* successRegisterResponse.json */; };
+		2CC3F1D8207820CA00EBBB5E /* failureRegisterResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3F1D7207820CA00EBBB5E /* failureRegisterResponse.json */; };
+		2CC3F1DB20782F9C00EBBB5E /* LoginManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F1DA20782F9C00EBBB5E /* LoginManagerTests.swift */; };
 		360FF60EFBC270C903EC23DD /* Pods_MySafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */; };
 		E293E2B8FAB99B9670E8635A /* Pods_MySafeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B955DF1709F844E94B59223F /* Pods_MySafeTests.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +103,12 @@
 		2CC3F1C52077FB4200EBBB5E /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		2CC3F1C72077FD9500EBBB5E /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		2CC3F1CA2078169000EBBB5E /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
+		2CC3F1CE2078187800EBBB5E /* APIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
+		2CC3F1D020781DBB00EBBB5E /* successLoginResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = successLoginResponse.json; sourceTree = "<group>"; };
+		2CC3F1D220781DC800EBBB5E /* failureLoginResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = failureLoginResponse.json; sourceTree = "<group>"; };
+		2CC3F1D5207820B100EBBB5E /* successRegisterResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = successRegisterResponse.json; sourceTree = "<group>"; };
+		2CC3F1D7207820CA00EBBB5E /* failureRegisterResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = failureRegisterResponse.json; sourceTree = "<group>"; };
+		2CC3F1DA20782F9C00EBBB5E /* LoginManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManagerTests.swift; sourceTree = "<group>"; };
 		8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8983A1BDA836C2555271C8DD /* Pods-MySafeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySafeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySafeTests/Pods-MySafeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B955DF1709F844E94B59223F /* Pods_MySafeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySafeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +206,7 @@
 		2C7D8ABD2073DAE100F01D11 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2CC3F1CC2078185E00EBBB5E /* Mock */,
 				2C7D8ABE2073DB0000F01D11 /* APIService.swift */,
 				2C6099732074571D00C62FC5 /* KeychainPersistence.swift */,
 				2C60996B20744B0600C62FC5 /* UserSession.swift */,
@@ -306,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC3F1C9207804ED00EBBB5E /* Models */,
+				2CC3F1D920782F8400EBBB5E /* Managers */,
 				2CC3F1BF2077FA3900EBBB5E /* Info.plist */,
 			);
 			path = MySafeTests;
@@ -318,6 +332,34 @@
 				2CC3F1C72077FD9500EBBB5E /* AccountTests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2CC3F1CC2078185E00EBBB5E /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				2CC3F1D42078207C00EBBB5E /* JSONs */,
+				2CC3F1CE2078187800EBBB5E /* APIServiceMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		2CC3F1D42078207C00EBBB5E /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				2CC3F1D020781DBB00EBBB5E /* successLoginResponse.json */,
+				2CC3F1D220781DC800EBBB5E /* failureLoginResponse.json */,
+				2CC3F1D5207820B100EBBB5E /* successRegisterResponse.json */,
+				2CC3F1D7207820CA00EBBB5E /* failureRegisterResponse.json */,
+			);
+			path = JSONs;
+			sourceTree = "<group>";
+		};
+		2CC3F1D920782F8400EBBB5E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2CC3F1DA20782F9C00EBBB5E /* LoginManagerTests.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		F03F3626E665806BB9B3E220 /* Pods */ = {
@@ -429,10 +471,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4602332072F71A00372E8E /* LaunchScreen.storyboard in Resources */,
+				2CC3F1D320781DC800EBBB5E /* failureLoginResponse.json in Resources */,
 				2C6099802075320500C62FC5 /* CustomTableViewHeader.xib in Resources */,
+				2CC3F1D120781DBB00EBBB5E /* successLoginResponse.json in Resources */,
+				2CC3F1D8207820CA00EBBB5E /* failureRegisterResponse.json in Resources */,
 				2CA38D4C2072FD2300251FA1 /* NewAccount.storyboard in Resources */,
 				2CA38D442072FC8E00251FA1 /* Accounts.storyboard in Resources */,
 				2C4602302072F71A00372E8E /* Assets.xcassets in Resources */,
+				2CC3F1D6207820B100EBBB5E /* successRegisterResponse.json in Resources */,
 				2CA38D482072FCEB00251FA1 /* AccountDetail.storyboard in Resources */,
 				2CA38D312072FAD800251FA1 /* Signup.storyboard in Resources */,
 				2CA38D2D2072FA3100251FA1 /* Login.storyboard in Resources */,
@@ -583,6 +629,7 @@
 				2C572B5A2075916600988179 /* AccountDetailManager.swift in Sources */,
 				2C60996C20744B0600C62FC5 /* UserSession.swift in Sources */,
 				2C1BD55A2073E7240090E233 /* AlertUtil.swift in Sources */,
+				2CC3F1CF2078187800EBBB5E /* APIServiceMock.swift in Sources */,
 				2CA38D532073150400251FA1 /* RegexUtil.swift in Sources */,
 				2C6099742074571D00C62FC5 /* KeychainPersistence.swift in Sources */,
 				2CA38D2B2072FA2A00251FA1 /* LoginViewController.swift in Sources */,
@@ -603,6 +650,7 @@
 			files = (
 				2CC3F1C62077FB4200EBBB5E /* UserTests.swift in Sources */,
 				2CC3F1C82077FD9500EBBB5E /* AccountTests.swift in Sources */,
+				2CC3F1DB20782F9C00EBBB5E /* LoginManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,12 +832,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YM3AUW8A2;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MySafeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lfap.MySafeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -807,12 +852,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YM3AUW8A2;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MySafeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lfap.MySafeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

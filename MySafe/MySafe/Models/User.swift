@@ -26,12 +26,12 @@ class User: NSObject, Codable {
 
 //**************************************************************************************
 //
-// MARK: - Equatable Extension
+// MARK: - Equality Extension
 //
 //**************************************************************************************
 extension User {
     
-    static func ==(lhs: User, rhs: User) -> Bool {
-        return lhs.username == rhs.username
+    override func isEqual(_ object: Any?) -> Bool {
+        return self.username == (object as? User)?.username
     }
 }
