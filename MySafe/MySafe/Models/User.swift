@@ -8,22 +8,30 @@
 
 import Foundation
 
-class User: NSObject {
+class User: NSObject, Codable {
 
     let name: String
     let username: String
     let passcode: String
-    var accounts: [Account]
     
     init(name: String = "Mock",
          username: String = "mock@mail.com",
-         passcode: String = "Mock@#3456",
-         accounts: [Account] = []) {
+         passcode: String = "Mock@#3456") {
         self.name = name
         self.username = username
         self.passcode = passcode
-        self.accounts = accounts
-        
-        super.init()
+    }
+}
+
+
+//**************************************************************************************
+//
+// MARK: - Equatable Extension
+//
+//**************************************************************************************
+extension User {
+    
+    static func ==(lhs: User, rhs: User) -> Bool {
+        return lhs.username == rhs.username
     }
 }

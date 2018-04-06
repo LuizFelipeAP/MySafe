@@ -43,6 +43,8 @@ class SignupManager {
                         UserSession.shared.token = token
                     }
                     
+                    KeychainPersistence.shared.add(user: self.user)
+                    
                 } else {
                     if let responseMessage = apiResponse?.message {
                         message = responseMessage

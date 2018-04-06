@@ -9,9 +9,16 @@
 import Foundation
 
 protocol PersistenceProtocol {
+    
+    //To manage the accounts persistence
     func add(account: Account) -> Bool
     func update(account: Account) -> Bool
     func remove(account: Account) -> Bool
-    func getAll() -> [Account]
+    func getAllAccounts() -> [Account]
     func add(all accounts: [Account]) -> Bool
+    
+    //To manage the Users authenticated persistence
+    func add(user: User) -> Bool
+    func getAllUsers() -> [User]
+    func add(all users: [User]) -> Bool
 }

@@ -23,7 +23,7 @@ class AccountsManager {
     
     func fetchAccounts() {
         //Retrive all accounts from keychain
-        self.accounts = KeychainPersistence.shared.getAll()
+        self.accounts = KeychainPersistence.shared.getAllAccounts()
         
         //Group the accounts by the application
         self.grouped = self.groupByName()

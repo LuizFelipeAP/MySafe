@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import LocalAuthentication
 
 class LoginManager {
     
@@ -20,41 +21,103 @@ class LoginManager {
     
     let disposeBag = DisposeBag()
     
+    var authenticatedUsers: [User] = []
+    
+    var canEnableTouchID: PublishSubject<Bool>!
+    
+    lazy var deviceSupportTouchID: Bool = {
+        
+        let context =  LAContext()
+        var error: NSError?
+    
+        return context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &error)
+    }()
+    
     //MARK: - Methods
-    func authenticateUser(completion: @escaping (Bool, String) -> ()) {
+    init() {
+        self.initObservables()
+    }
+    
+    func loadAuthenticatedUsers() {
+        self.authenticatedUsers = KeychainPersistence.shared.getAllUsers()
+    }
+    
+    func initObservables() {
+        
+        self.canEnableTouchID = PublishSubject<Bool>()
+        
+        self.username.asObservable()
+            .subscribe(onNext: { username in
+                let contains = self.authenticatedUsers.contains(where: { user -> Bool in
+                    return user.username == username
+                })
+                self.canEnableTouchID.onNext(contains)
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
+    func authenticateUser(completion: @escaping (Bool, String) -> (Void)) {
         
         self.buildUser()
         
         if self.isValidLogin() {
             
-            APIService.shared.authenticate(user: self.user) { (apiResponse) -> (Void) in
-                
-                //Save the token to UserSession
-                
-                let isSuccess = apiResponse?.success == true
-                let message: String
-                
-                if isSuccess {
-                    message = "Success"
-                    
-                    if let token = apiResponse?.token {
-                        UserSession.shared.user = self.user
-                        UserSession.shared.token = token
-                    }
-                    
-                } else {
-                    
-                    if let apiMessage = apiResponse?.message {
-                        message = apiMessage
-                    } else {
-                        message = "Server Error"
-                    }
-                }
-                
-                completion(isSuccess, message)
-            }
+            self.authenticateWithAPI(completion: completion)
         } else {
             completion(false, "Invalid e-mail or passcode")
+        }
+    }
+    
+    func authenticateWithTouchID(completion: @escaping (Bool, String?) -> (Void)) {
+        
+        let context =  LAContext()
+        
+        if self.deviceSupportTouchID {
+            
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "You can login with your TouchID") { (success, error) in
+                
+                guard let index = self.authenticatedUsers.index(where:  {
+                    $0.username == self.username.value
+                }) else {
+                    completion(false, "")
+                    return
+                }
+                
+                self.user = self.authenticatedUsers[index]
+                
+                self.authenticateWithAPI(completion: completion)
+            }
+        }
+    }
+    
+    func authenticateWithAPI(completion: @escaping (Bool, String) -> (Void) ) {
+        APIService.shared.authenticate(user: self.user) { (apiResponse) -> (Void) in
+            
+            //Save the token to UserSession
+            
+            let isSuccess = apiResponse?.success == true
+            let message: String
+            
+            if isSuccess {
+                message = "Success"
+                
+                if let token = apiResponse?.token {
+                    UserSession.shared.user = self.user
+                    UserSession.shared.token = token
+                }
+                
+                KeychainPersistence.shared.add(user: self.user)
+                
+            } else {
+                
+                if let apiMessage = apiResponse?.message {
+                    message = apiMessage
+                } else {
+                    message = "Server Error"
+                }
+            }
+            
+            completion(isSuccess, message)
         }
     }
     
