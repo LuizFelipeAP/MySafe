@@ -30,6 +30,7 @@ class AccountsManager {
         
         //Set up the array of section
         self.sections = Array<String>(self.grouped.keys)
+            .sorted(by: { $0 < $1 })
         
         //Set up the number of rows for each section
         self.rowsPerSection = self.sections.map {

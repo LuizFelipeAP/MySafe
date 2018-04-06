@@ -42,6 +42,7 @@ class CustomTableViewHeader: UITableViewHeaderFooterView {
     }
     
     func configure(with sectionName: String) {
+        
         self.applicationNameLabel.text = sectionName
         self.configureImageView(forLogoName: sectionName)
     }
