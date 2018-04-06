@@ -13,6 +13,8 @@ import RxCocoa
 class NewAccountViewController: UIViewController {
 
     //MARK: - IBOutlets
+    @IBOutlet weak var containerView: UIView!
+    
     @IBOutlet weak var navigationBar: UINavigationBar!
 
     @IBOutlet weak var applicationTextField: UITextField!
@@ -24,9 +26,15 @@ class NewAccountViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.styleView()
+        
         self.bindManagers()
         self.bindUI()
     }
@@ -65,7 +73,9 @@ extension NewAccountViewController {
         }
         
         AlertUtil.showInfo(title: title, message: message, from: self) { _ in
-            self.dismiss()
+            if saveResult.0 {
+                self.dismiss()
+            }
         }
     }
 }
@@ -109,5 +119,36 @@ extension NewAccountViewController {
             .orEmpty
             .bind(to: self.newAccountManager.passcode)
             .disposed(by: self.disposeBag)
+    }
+    
+    //MARK: - UI
+    fileprivate func styleView() {
+        
+        //Clear navigation Bar
+        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationBar.shadowImage = UIImage()
+        self.navigationBar.isTranslucent = true
+        
+        self.containerView.backgroundColor = .clear
+        
+        //Create the blur
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.containerView.insertSubview(blurView, at: 0)
+        
+        //Add Constraints
+        NSLayoutConstraint.activate([
+            blurView.heightAnchor.constraint(equalTo: self.containerView.heightAnchor, multiplier: 1),
+            blurView.widthAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 1),
+            blurView.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor),
+            blurView.centerYAnchor.constraint(equalTo: self.containerView.centerYAnchor)
+            ])
+        
+        //Round the container
+        blurView.layer.cornerRadius = 15
+        blurView.clipsToBounds = true
     }
 }

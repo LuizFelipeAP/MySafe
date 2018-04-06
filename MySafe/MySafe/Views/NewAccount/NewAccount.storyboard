@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,8 +20,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="jdH-DL-ZvQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcH-QZ-PBx">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="New Account" id="hGB-dC-SyD">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xWE-gi-Trw">
@@ -35,38 +43,66 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="App/Wesite " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ph6-gW-j7d">
-                                <rect key="frame" x="111" y="110" width="169" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" textContentType="url"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w9Y-zW-cMg">
-                                <rect key="frame" x="111" y="220" width="169" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PWL-fq-45P">
-                                <rect key="frame" x="111" y="165" width="169" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="username"/>
-                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxD-9M-y3h">
+                                <rect key="frame" x="19" y="215.5" width="337.5" height="236"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="App/Wesite " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ph6-gW-j7d">
+                                        <rect key="frame" x="16.5" y="38" width="304" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="hhB-2d-6fc"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" textContentType="url"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PWL-fq-45P">
+                                        <rect key="frame" x="16.5" y="98" width="304" height="40"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w9Y-zW-cMg">
+                                        <rect key="frame" x="16.5" y="158" width="304" height="40"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="PWL-fq-45P" firstAttribute="centerX" secondItem="YxD-9M-y3h" secondAttribute="centerX" id="5M2-BQ-Bex"/>
+                                    <constraint firstItem="Ph6-gW-j7d" firstAttribute="centerX" secondItem="YxD-9M-y3h" secondAttribute="centerX" id="8bQ-QF-iWc"/>
+                                    <constraint firstItem="PWL-fq-45P" firstAttribute="width" secondItem="Ph6-gW-j7d" secondAttribute="width" id="AhG-zf-qoZ"/>
+                                    <constraint firstItem="w9Y-zW-cMg" firstAttribute="centerX" secondItem="YxD-9M-y3h" secondAttribute="centerX" id="FfU-GT-rDy"/>
+                                    <constraint firstItem="Ph6-gW-j7d" firstAttribute="width" secondItem="YxD-9M-y3h" secondAttribute="width" multiplier="0.9" id="OWU-2B-6QN"/>
+                                    <constraint firstItem="PWL-fq-45P" firstAttribute="height" secondItem="Ph6-gW-j7d" secondAttribute="height" id="jft-xW-Zte"/>
+                                    <constraint firstItem="w9Y-zW-cMg" firstAttribute="top" secondItem="PWL-fq-45P" secondAttribute="bottom" constant="20" id="kKy-ew-l3c"/>
+                                    <constraint firstItem="PWL-fq-45P" firstAttribute="centerY" secondItem="YxD-9M-y3h" secondAttribute="centerY" id="p7b-rn-q10"/>
+                                    <constraint firstItem="PWL-fq-45P" firstAttribute="top" secondItem="Ph6-gW-j7d" secondAttribute="bottom" constant="20" id="pTO-q6-yTD"/>
+                                    <constraint firstAttribute="width" secondItem="YxD-9M-y3h" secondAttribute="height" multiplier="1:0.7" id="q6L-AC-jWF"/>
+                                    <constraint firstItem="w9Y-zW-cMg" firstAttribute="height" secondItem="PWL-fq-45P" secondAttribute="height" id="t8b-JM-ec0"/>
+                                    <constraint firstItem="w9Y-zW-cMg" firstAttribute="width" secondItem="PWL-fq-45P" secondAttribute="width" id="twb-PU-OF2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="YxD-9M-y3h" firstAttribute="centerY" secondItem="5Yl-e5-a6Q" secondAttribute="centerY" id="4Qn-8c-fXE"/>
+                            <constraint firstItem="YxD-9M-y3h" firstAttribute="centerX" secondItem="5Yl-e5-a6Q" secondAttribute="centerX" id="MHh-lY-dIP"/>
+                            <constraint firstItem="jdH-DL-ZvQ" firstAttribute="leading" secondItem="xkY-9X-bik" secondAttribute="leading" id="MqP-dW-qwc"/>
+                            <constraint firstItem="xkY-9X-bik" firstAttribute="bottom" secondItem="jdH-DL-ZvQ" secondAttribute="bottom" id="Uxa-df-TX2"/>
+                            <constraint firstItem="xkY-9X-bik" firstAttribute="trailing" secondItem="jdH-DL-ZvQ" secondAttribute="trailing" id="WdY-0c-z3d"/>
                             <constraint firstAttribute="trailing" secondItem="TcH-QZ-PBx" secondAttribute="trailing" id="aeP-bj-f51"/>
+                            <constraint firstItem="YxD-9M-y3h" firstAttribute="width" secondItem="jdH-DL-ZvQ" secondAttribute="width" multiplier="0.9" id="e3S-qm-Nu6"/>
                             <constraint firstItem="TcH-QZ-PBx" firstAttribute="top" secondItem="xkY-9X-bik" secondAttribute="top" id="gTc-Io-8pF"/>
                             <constraint firstItem="TcH-QZ-PBx" firstAttribute="leading" secondItem="xkY-9X-bik" secondAttribute="leading" id="gdt-uE-6Xo"/>
+                            <constraint firstItem="jdH-DL-ZvQ" firstAttribute="top" secondItem="5Yl-e5-a6Q" secondAttribute="top" id="sG1-BR-2A0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xkY-9X-bik"/>
                     </view>
                     <connections>
                         <outlet property="applicationTextField" destination="Ph6-gW-j7d" id="Pqc-MZ-add"/>
+                        <outlet property="containerView" destination="YxD-9M-y3h" id="Zp9-HA-Sld"/>
                         <outlet property="navigationBar" destination="TcH-QZ-PBx" id="aKA-I3-hYS"/>
                         <outlet property="passcodeTextField" destination="w9Y-zW-cMg" id="dI0-EH-U3m"/>
                         <outlet property="usernameTextField" destination="PWL-fq-45P" id="vfx-4U-SG4"/>
@@ -77,4 +113,7 @@
             <point key="canvasLocation" x="501.60000000000002" y="-201.04947526236884"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="1080" height="1920"/>
+    </resources>
 </document>
