@@ -82,10 +82,11 @@ class SignupManager {
     
     func buildUser() {
         
+        let name = self.name.value
         let username = self.username.value
         let passcode = self.passcode.value
         
-        let user = User(username: username, passcode: passcode)
+        let user = User(name: name, username: username, passcode: passcode)
         
         self.user = user
     }

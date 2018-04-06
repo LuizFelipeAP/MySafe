@@ -47,6 +47,7 @@
 		2CC3F1D6207820B100EBBB5E /* successRegisterResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3F1D5207820B100EBBB5E /* successRegisterResponse.json */; };
 		2CC3F1D8207820CA00EBBB5E /* failureRegisterResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3F1D7207820CA00EBBB5E /* failureRegisterResponse.json */; };
 		2CC3F1DB20782F9C00EBBB5E /* LoginManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F1DA20782F9C00EBBB5E /* LoginManagerTests.swift */; };
+		2CC3F1DD2078375E00EBBB5E /* SignupManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F1DC2078375E00EBBB5E /* SignupManagerTests.swift */; };
 		360FF60EFBC270C903EC23DD /* Pods_MySafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */; };
 		E293E2B8FAB99B9670E8635A /* Pods_MySafeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B955DF1709F844E94B59223F /* Pods_MySafeTests.framework */; };
 /* End PBXBuildFile section */
@@ -109,6 +110,7 @@
 		2CC3F1D5207820B100EBBB5E /* successRegisterResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = successRegisterResponse.json; sourceTree = "<group>"; };
 		2CC3F1D7207820CA00EBBB5E /* failureRegisterResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = failureRegisterResponse.json; sourceTree = "<group>"; };
 		2CC3F1DA20782F9C00EBBB5E /* LoginManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManagerTests.swift; sourceTree = "<group>"; };
+		2CC3F1DC2078375E00EBBB5E /* SignupManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupManagerTests.swift; sourceTree = "<group>"; };
 		8328FE62D06B320B30DFFDFC /* Pods_MySafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8983A1BDA836C2555271C8DD /* Pods-MySafeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySafeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySafeTests/Pods-MySafeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B955DF1709F844E94B59223F /* Pods_MySafeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySafeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC3F1DA20782F9C00EBBB5E /* LoginManagerTests.swift */,
+				2CC3F1DC2078375E00EBBB5E /* SignupManagerTests.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				2CC3F1C62077FB4200EBBB5E /* UserTests.swift in Sources */,
 				2CC3F1C82077FD9500EBBB5E /* AccountTests.swift in Sources */,
 				2CC3F1DB20782F9C00EBBB5E /* LoginManagerTests.swift in Sources */,
+				2CC3F1DD2078375E00EBBB5E /* SignupManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

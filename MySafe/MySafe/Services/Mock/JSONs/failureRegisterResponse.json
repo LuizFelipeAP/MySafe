@@ -1,4 +1,4 @@
 {
     "type": "error",
-    "message": "Duplicate key for property email: nick@mail.com"
+    "message": "Duplicate key for property email"
 }
