@@ -129,7 +129,7 @@ extension LoginViewController {
                 .disposed(by: self.disposeBag)
             
             self.touchIDButton.rx.tap
-                .throttle(1.5, scheduler: MainScheduler.instance)
+                .throttle(2, scheduler: MainScheduler.instance)
                 .subscribe(onNext: {
                     
                     self.loginManager.authenticateWithTouchID { success, msg in

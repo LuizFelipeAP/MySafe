@@ -30,6 +30,17 @@ class CustomTableViewHeader: UITableViewHeaderFooterView {
         super.awakeFromNib()
     }
     
+    func styleView() {
+        //Make the imageView rounded
+        let imageViewHeight = self.applicationLogoImageView.frame.height
+        self.applicationLogoImageView.layer.cornerRadius = imageViewHeight / 2
+        self.applicationLogoImageView.layer.masksToBounds = true
+        
+        //Give a thin border to the image
+        self.applicationLogoImageView.layer.borderColor = UIColor.white.cgColor
+        self.applicationLogoImageView.layer.borderWidth = 1.0
+    }
+    
     func configure(with sectionName: String) {
         self.applicationNameLabel.text = sectionName
         self.configureImageView(forLogoName: sectionName)

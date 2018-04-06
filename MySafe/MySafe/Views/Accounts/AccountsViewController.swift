@@ -175,5 +175,9 @@ extension AccountsViewController: UITableViewDelegate {
         return CustomTableViewHeader.height
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let customHeader = view as? CustomTableViewHeader else { return }
+        customHeader.styleView()
+    }
     
 }
