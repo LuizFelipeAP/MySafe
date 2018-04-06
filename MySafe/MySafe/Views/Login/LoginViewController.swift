@@ -13,6 +13,9 @@ import RxCocoa
 class LoginViewController: UIViewController {
     
     //MARK: - IBOutlets
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var loginButton: UIButton!
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passcodeTextField: UITextField!
     
@@ -23,12 +26,18 @@ class LoginViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.bindManagers()
         self.configureTouchIDButton()
         self.bindUI()
+        
+        self.styleLoginView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -144,11 +153,11 @@ extension LoginViewController {
         
         button.setImage(#imageLiteral(resourceName: "touchID"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsetsMake(0, -16, 0, 0)
-        button.frame = CGRect(x: CGFloat(self.passcodeTextField.frame.size.width - 25),
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        button.frame = CGRect(x: CGFloat(self.passcodeTextField.frame.size.width - 15),
                               y: CGFloat(5),
-                              width: CGFloat(20),
-                              height: CGFloat(20))
+                              width: CGFloat(50),
+                              height: CGFloat(50))
         
         button.isHidden = true
         
@@ -163,6 +172,36 @@ extension LoginViewController {
         guard let accountsVC = aStoryboard.instantiateInitialViewController() as? UINavigationController else { return }
         
         self.present(accountsVC, animated: true, completion: nil)
+    }
+    
+    //MARK: - UI
+    fileprivate func styleLoginView() {
+        
+        self.containerView.backgroundColor = .clear
+        
+        //Create the blur
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.containerView.insertSubview(blurView, at: 0)
+        
+        //Add Constraints
+        NSLayoutConstraint.activate([
+            blurView.heightAnchor.constraint(equalTo: self.containerView.heightAnchor, multiplier: 1),
+            blurView.widthAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 1),
+            blurView.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor),
+            blurView.centerYAnchor.constraint(equalTo: self.containerView.centerYAnchor)
+            ])
+        
+        //Round the container
+        blurView.layer.cornerRadius = 15
+        blurView.clipsToBounds = true
+        
+        //Round the login button
+        self.loginButton.layer.cornerRadius = 5
+        self.loginButton.clipsToBounds = true
     }
 }
 
