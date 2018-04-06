@@ -40,12 +40,7 @@ class CustomTableViewHeader: UITableViewHeaderFooterView {
         let url: String = EndPoints.logo.rawValue
         
         let finalURL = URL(string: "\(url)/\(logoName)")
-        
-        //Add token to request
-        
-//        if let token = UserSession.shared.token {
-        
-            self.applicationLogoImageView.kf.setImage(with: finalURL, options: [UserSession.shared.kingfisherModifier])
-//        }
+                
+        self.applicationLogoImageView.kf.setImage(with: finalURL, options: [UserSession.shared.kingfisherModifier])
     }
 }

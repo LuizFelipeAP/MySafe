@@ -76,16 +76,19 @@ class LoginManager {
             
             context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "You can login with your TouchID") { (success, error) in
                 
-                guard let index = self.authenticatedUsers.index(where:  {
-                    $0.username == self.username.value
-                }) else {
-                    completion(false, "")
-                    return
+                if success {
+                    
+                    guard let index = self.authenticatedUsers.index(where:  {
+                        $0.username == self.username.value
+                    }) else {
+                        completion(false, "")
+                        return
+                    }
+                    
+                    self.user = self.authenticatedUsers[index]
+                    
+                    self.authenticateWithAPI(completion: completion)
                 }
-                
-                self.user = self.authenticatedUsers[index]
-                
-                self.authenticateWithAPI(completion: completion)
             }
         }
     }

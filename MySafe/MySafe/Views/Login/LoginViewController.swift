@@ -138,7 +138,7 @@ extension LoginViewController {
                             self.presentAccounts()
                         } else {
                             let message = msg ?? "Some error occur, try again"
-                            AlertUtil.showConfirmation(title: "Error", message: message, from: self)
+                            AlertUtil.showInfo(title: "Error", message: message, from: self)
                         }
                     }
                 })

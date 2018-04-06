@@ -16,7 +16,7 @@ class UserSession {
     }()
     
     var user: User?
-    var token: String? = "11bd7a1e-84ab-440b-a81e-68452f9554e0"
+    var token: String?
     
     private init() { }
     
