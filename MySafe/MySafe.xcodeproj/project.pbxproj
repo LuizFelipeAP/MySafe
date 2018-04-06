@@ -302,11 +302,19 @@
 		2CC3F1BC2077FA3900EBBB5E /* MySafeTests */ = {
 			isa = PBXGroup;
 			children = (
+				2CC3F1C9207804ED00EBBB5E /* Models */,
 				2CC3F1BF2077FA3900EBBB5E /* Info.plist */,
+			);
+			path = MySafeTests;
+			sourceTree = "<group>";
+		};
+		2CC3F1C9207804ED00EBBB5E /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				2CC3F1C52077FB4200EBBB5E /* UserTests.swift */,
 				2CC3F1C72077FD9500EBBB5E /* AccountTests.swift */,
 			);
-			path = MySafeTests;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F03F3626E665806BB9B3E220 /* Pods */ = {

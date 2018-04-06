@@ -41,7 +41,7 @@ extension Account {
     static func ==(lhs: Account, rhs: Account) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     /**
      Compares if all atributes are equals
      
