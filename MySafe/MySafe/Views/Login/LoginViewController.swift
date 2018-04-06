@@ -97,7 +97,10 @@ extension LoginViewController {
 extension LoginViewController {
     
     func bindManagers() {
-        let loginManager = LoginManager()
+        
+        let apiService = APIService()
+        
+        let loginManager = LoginManager(apiService: apiService)
         self.bind(loginManager: loginManager)
     }
     

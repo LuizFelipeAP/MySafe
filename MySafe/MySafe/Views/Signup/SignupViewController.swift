@@ -88,7 +88,8 @@ extension SignupViewController {
     }
     
     func bindManagers() {
-        let signupManager = SignupManager()
+        let apiService = APIService()
+        let signupManager = SignupManager(apiService: apiService)
         self.bind(signupManager: signupManager)
     }
     

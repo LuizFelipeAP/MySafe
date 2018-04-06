@@ -16,13 +16,7 @@ enum EndPoints: String {
     case logo = "https://dev.people.com.ai/mobile/api/v2/logo"
 }
 
-class APIService {
-    
-    static var shared: APIService = {
-        return APIService()
-    }()
-    
-    private init() { }
+class APIService: APIServiceProtocol {
     
     //MARK: - Methods
     func authenticate(user: User,

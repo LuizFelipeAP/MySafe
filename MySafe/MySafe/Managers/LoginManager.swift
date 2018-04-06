@@ -33,10 +33,16 @@ class LoginManager {
         return context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &error)
     }()
     
-    //MARK: - Methods
-    init() {
+    //MARK: Services
+    var apiService: APIServiceProtocol
+    
+    //MARK: - Inits
+    init(apiService: APIServiceProtocol) {
+        self.apiService = apiService
         self.initObservables()
     }
+    
+    //MARK: - Methods
     
     func loadAuthenticatedUsers() {
         self.authenticatedUsers = KeychainPersistence.shared.getAllUsers()
@@ -96,7 +102,7 @@ class LoginManager {
 extension LoginManager {
     
     func authenticateWithAPI(completion: @escaping (Bool, String) -> (Void) ) {
-        APIService.shared.authenticate(user: self.user) { (apiResponse) -> (Void) in
+        self.apiService.authenticate(user: self.user) { (apiResponse) -> (Void) in
             
             //Save the token to UserSession
             

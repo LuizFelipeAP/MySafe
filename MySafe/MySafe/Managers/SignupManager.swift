@@ -21,6 +21,15 @@ class SignupManager {
     
     let disposeBag = DisposeBag()
     
+    //MARK: Services
+    var apiService: APIServiceProtocol
+    
+    
+    //MARK: Inits
+    init(apiService: APIServiceProtocol) {
+        self.apiService = apiService
+    }
+    
     //MARK: - Methods
     func registerUser(completion: @escaping (Bool, String) -> ()) {
         
@@ -28,7 +37,7 @@ class SignupManager {
         
         if self.isValidFields() {
          
-            APIService.shared.postNew(user: self.user) { (apiResponse) -> (Void) in
+            self.apiService.postNew(user: self.user) { (apiResponse) -> (Void) in
                 
                 //Save the token to UserSession
                 
