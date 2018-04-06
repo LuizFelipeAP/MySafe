@@ -271,10 +271,11 @@ extension AccountDetailViewController {
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
         
-        self.view.layoutSubviews()
-        
         let height = self.applicationLogoImageView.frame.height
         self.applicationLogoImageView.layer.cornerRadius = height / 2
         self.applicationLogoImageView.clipsToBounds = true
+        
+        self.applicationLogoImageView.layer.borderColor = UIColor.white.cgColor
+        self.applicationLogoImageView.layer.borderWidth = 1
     }
 }
