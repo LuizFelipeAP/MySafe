@@ -35,17 +35,20 @@ class LoginManager {
     
     //MARK: Services
     var apiService: APIServiceProtocol
+    var persistenceService: PersistenceProtocol
     
     //MARK: - Inits
-    init(apiService: APIServiceProtocol) {
+    init(apiService: APIServiceProtocol,
+         persistenceService: PersistenceProtocol) {
         self.apiService = apiService
+        self.persistenceService = persistenceService
         self.initObservables()
     }
     
     //MARK: - Methods
     
     func loadAuthenticatedUsers() {
-        self.authenticatedUsers = KeychainPersistence.shared.getAllUsers()
+        self.authenticatedUsers = self.persistenceService.getAllUsers()
     }
     
     func initObservables() {
@@ -117,7 +120,7 @@ extension LoginManager {
                     UserSession.shared.token = token
                 }
                 
-                KeychainPersistence.shared.add(user: self.user)
+                self.persistenceService.add(user: self.user)
                 
             } else {
                 

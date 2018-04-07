@@ -24,7 +24,8 @@ class LoginManagerTests: QuickSpec {
         
         beforeEach {
             let apiService = APIServiceMock()
-            loginManager = LoginManager(apiService: apiService)
+            let persistenceService = KeychainPersistenceMock()
+            loginManager = LoginManager(apiService: apiService, persistenceService: persistenceService)
         }
         
         describe("testing Login manager") {

@@ -89,7 +89,10 @@ extension SignupViewController {
     
     func bindManagers() {
         let apiService = APIService()
-        let signupManager = SignupManager(apiService: apiService)
+        let persistenceService = KeychainPersistence()
+        
+        let signupManager = SignupManager(apiService: apiService,
+                                          persistenceService: persistenceService)
         self.bind(signupManager: signupManager)
     }
     

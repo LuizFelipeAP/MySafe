@@ -18,6 +18,7 @@ protocol PersistenceProtocol {
     func add(all accounts: [Account]) -> Bool
     
     //To manage the Users authenticated persistence
+    @discardableResult
     func add(user: User) -> Bool
     func getAllUsers() -> [User]
     func add(all users: [User]) -> Bool

@@ -23,7 +23,8 @@ class SignupManagerTests: QuickSpec {
         
         beforeEach {
             let apiService = APIServiceMock()
-            signupManager = SignupManager(apiService: apiService)
+            let persistenceService = KeychainPersistenceMock()
+            signupManager = SignupManager(apiService: apiService, persistenceService: persistenceService)
         }
         
         describe("testing signup manager") {

@@ -23,11 +23,13 @@ class SignupManager {
     
     //MARK: Services
     var apiService: APIServiceProtocol
-    
+    var persistenceService: PersistenceProtocol
     
     //MARK: Inits
-    init(apiService: APIServiceProtocol) {
+    init(apiService: APIServiceProtocol,
+         persistenceService: PersistenceProtocol) {
         self.apiService = apiService
+        self.persistenceService = persistenceService
     }
     
     //MARK: - Methods
@@ -52,7 +54,7 @@ class SignupManager {
                         UserSession.shared.token = token
                     }
                     
-                    KeychainPersistence.shared.add(user: self.user)
+                    self.persistenceService.add(user: self.user)
                     
                 } else {
                     if let responseMessage = apiResponse?.message {

@@ -92,7 +92,8 @@ extension NewAccountViewController {
     }
     
     func bindManagers() {
-        let newAccountManager = NewAccountManager()
+        let persistenceService = KeychainPersistence()
+        let newAccountManager = NewAccountManager(persistenceService: persistenceService)
         self.bind(newAccountManager: newAccountManager)
     }
     

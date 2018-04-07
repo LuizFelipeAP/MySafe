@@ -21,6 +21,14 @@ class NewAccountManager {
     
     let disposeBag = DisposeBag()
     
+    //MARK: Services
+    var persistenceService: PersistenceProtocol
+    
+    //MARK: Inits
+    init(persistenceService: PersistenceProtocol) {
+        self.persistenceService = persistenceService
+    }
+    
     //MARK: - Methods
     
     /**
@@ -38,7 +46,7 @@ class NewAccountManager {
         
         if self.isValidAccount() {
             
-            if KeychainPersistence.shared.add(account: self.account) {
+            if self.persistenceService.add(account: self.account) {
                 status = (true, "New account successfully saved")
             } else {
                 status = (false, "Sorry couldn't save the account")

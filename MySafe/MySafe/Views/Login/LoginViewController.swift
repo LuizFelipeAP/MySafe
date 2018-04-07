@@ -99,8 +99,10 @@ extension LoginViewController {
     func bindManagers() {
         
         let apiService = APIService()
+        let persistenceService = KeychainPersistence()
         
-        let loginManager = LoginManager(apiService: apiService)
+        let loginManager = LoginManager(apiService: apiService,
+                                        persistenceService: persistenceService)
         self.bind(loginManager: loginManager)
     }
     

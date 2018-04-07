@@ -13,15 +13,9 @@ class KeychainPersistence: PersistenceProtocol {
     
     
     //MARK: - Properties
-    static var shared: KeychainPersistence = {
-        return KeychainPersistence()
-    }()
     
     struct Constants {
         static let usersKey: String = "USERS"
-    }
-    
-    init() {
     }
 }
 
