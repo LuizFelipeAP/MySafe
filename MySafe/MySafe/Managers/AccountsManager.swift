@@ -19,10 +19,10 @@ class AccountsManager {
     
     var rowsPerSection: [Int] = []
     
-    //MARK: Services
+    //MARK: - Services
     var persistenceService: PersistenceProtocol
     
-    //MAR: Inits
+    //MARK: - Inits
     init(persistenceService: PersistenceProtocol) {
         self.persistenceService = persistenceService
     }

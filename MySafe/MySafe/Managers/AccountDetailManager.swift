@@ -22,13 +22,20 @@ class AccountDetailManager {
         }
     }
 
-    init(account: Account) {
+    //MARK: Services
+    var persistenceService: PersistenceProtocol
+    
+    //MARK: - Inits
+    init(account: Account, persistenceService: PersistenceProtocol) {
         self.originalAccount.accept(account)
+        self.persistenceService = persistenceService
     }
+    
+    //MARK: - Methods
     
     func removeAccount() -> Bool {
         guard let account = self.originalAccount.value else { return false }
-        return KeychainPersistence.shared.remove(account: account)
+        return self.persistenceService.remove(account: account)
     }
     
     func isAccountEddited() -> Bool {
@@ -47,7 +54,7 @@ class AccountDetailManager {
         
         if self.isValidAccount() {
             
-            if KeychainPersistence.shared.update(account: accountToEdit) {
+            if self.persistenceService.update(account: accountToEdit) {
                 status = (true, "Account successfully updated")
             } else {
                 status = (false, "Sorry couldn't update the account")
@@ -62,7 +69,7 @@ class AccountDetailManager {
     
     func isValidAccount() -> Bool {
         
-        guard let edditedAccount = self.originalAccount.value else { return false }
+        guard let edditedAccount = self.edditedAccount else { return false }
         
         let validApplication = ValidationUtil.shared.isValid(name: edditedAccount.application)
         

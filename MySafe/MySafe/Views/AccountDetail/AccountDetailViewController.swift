@@ -59,7 +59,8 @@ class AccountDetailViewController: UIViewController {
 extension AccountDetailViewController {
     
     func bindManagers(account: Account) {
-        let accountDetailManager = AccountDetailManager(account: account)
+        let persistenceService = KeychainPersistence()
+        let accountDetailManager = AccountDetailManager(account: account, persistenceService: persistenceService)
         self.bind(accountDetailManager: accountDetailManager)
     }
     
