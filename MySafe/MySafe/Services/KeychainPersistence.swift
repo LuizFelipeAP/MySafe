@@ -21,7 +21,8 @@ class KeychainPersistence: PersistenceProtocol {
         static let usersKey: String = "USERS"
     }
     
-    private init() { }
+    init() {
+    }
 }
 
 //**************************************************************************************

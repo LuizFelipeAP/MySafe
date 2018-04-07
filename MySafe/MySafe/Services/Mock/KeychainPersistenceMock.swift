@@ -17,7 +17,7 @@ class KeychainPersistenceMock: PersistenceProtocol {
     init() {
         let accOne = Account(application: "netflix.com", username: "John", passcode: "John123")
         let accTwo = Account(application: "globo.com", username: "Peter", passcode: "Peter")
-        let accThree = Account(application: "site.com", username: "Mary", passcode: "Mary123")
+        let accThree = Account(application: "netflix.com", username: "Mary", passcode: "Mary123")
         
         self.accounts = [accOne, accTwo, accThree]
         

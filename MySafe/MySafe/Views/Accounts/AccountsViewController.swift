@@ -77,7 +77,8 @@ extension AccountsViewController {
 extension AccountsViewController {
     
     func bindManagers() {
-        let accountsManager = AccountsManager()
+        let persistenceService = KeychainPersistence()
+        let accountsManager = AccountsManager(persistenceService: persistenceService)
         self.bind(accountsManager: accountsManager)
     }
     

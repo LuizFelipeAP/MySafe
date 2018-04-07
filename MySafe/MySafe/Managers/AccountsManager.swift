@@ -19,11 +19,19 @@ class AccountsManager {
     
     var rowsPerSection: [Int] = []
     
+    //MARK: Services
+    var persistenceService: PersistenceProtocol
+    
+    //MAR: Inits
+    init(persistenceService: PersistenceProtocol) {
+        self.persistenceService = persistenceService
+    }
+    
     //MARK: - Methods
     
     func fetchAccounts() {
         //Retrive all accounts from keychain
-        self.accounts = KeychainPersistence.shared.getAllAccounts()
+        self.accounts = self.persistenceService.getAllAccounts()
         
         //Group the accounts by the application
         self.grouped = self.groupByName()
